@@ -2,9 +2,9 @@
 
 ## Planning Documents
 
-Submitted on: May 21st, 2018
-By: Kelly Colht
-For: WATS-4000 - Building JavaScript Applications
+Submitted on: May 21st, 2018    
+By: Kelly Colht    
+For: WATS-4000 - Building JavaScript Applications    
 
 #### Objectives
 
