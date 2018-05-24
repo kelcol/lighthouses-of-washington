@@ -1,4 +1,4 @@
-# lighthouses
+# lighthouses-of-washington
 
 > A Vue.js project
 
