@@ -15,7 +15,7 @@
             </a>
           </li>
           <li class="nav-item">
-             <router-link class="nav-link" v-bind:to="{name: 'About'}">About</router-link>
+            <router-link class="nav-link" v-bind:to="{name: 'About'}">About</router-link>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -33,54 +33,53 @@
     </div> -->
 
     <div class="form-group col-lg-3 col-md-3 col-sm-4 mt-8">
-      <label for="lighthouse-select"><h2>Select a Lighthouse</h2></label>
-      <select id="lighthouse-select" class="form-control">
-        <option>Admiralty Head Light</option>
-        <option>Alki Point Light</option>
-        <option>Browns Point Light</option>
-        <option>Burrows Island Light</option>
-        <option>Bush Point Light</option>
-        <option>Cape Disappointment Light</option>
-        <option>Cape Flattery Light</option>
-        <option>Cattle Point Light</option>
-        <option>Clover Island Light</option>
-        <option>Destruction Island Light</option>
-        <option>Dofflemyer Point Light</option>
-        <option>Ediz Hook Light</option>
-        <option>Grays Harbor Light</option>
-        <option>Lime Kiln Light</option>
-        <option>Marrowstone Point Light</option>
-        <option>Mukilteo Light</option>
-        <option>New Dungeness Light</option>
-        <option>North Head Light</option>
-        <option>Patos Island Light</option>
-        <option>Point No Point Light</option>
-        <option>Point Roberts Light</option>
-        <option>Point Robinson Light</option>
-        <option>Point Wilson Light</option>
-        <option>Semiahmoo Harbor Light</option>
-        <option>Skunk Bay Light</option>
-        <option>Slip Point Light</option>
-        <option>Smith Island Light</option>
-        <option>Turn Point Light</option>
-        <option>West Point Light</option>
-        <option>Willapa Bay Light</option>
+      <label for="lighthouse-select">
+        <h2>Select a Lighthouse</h2>
+      </label>
+      <select>
+      <option v-for="lighthouse in lighthouses" id="lighthouse-select" class="form-control">
+        {{ lighthouse.lighthouseLabel }}
+      </option>
       </select>
-
     </div>
+    <div>
+      <li v-for="lighthouse in lighthouses"><a v-link="{ path: lighthouse.lighthouse }"></a></li>
+    </div>
+
+    <ul>
+      <li v-for="lighthouse in lighthouses" >
+        <p>{{ lighthouse.lighthouseLabel }}</p>
+        <img v-bind:src="lighthouse.image"/>
+      </li>
+    </ul>
+
   </div>
+
 </template>
 
 
-
 <script>
+
+import lighthouses from '../lighthouses.js';
+
 export default {
   name: 'LighthouseSearch',
   data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+    return lighthouses
+  },
+
 }
 </script>
 
+<style scoped>
+img
+{
+  width: auto !important;
+  height: auto !important;
+  max-width: 40%;
+}
+ul {
+
+}
+
+</style>
