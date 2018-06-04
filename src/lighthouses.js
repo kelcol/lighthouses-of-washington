@@ -100,55 +100,8 @@ export default {
     "height": "9",
     "located_on_terrain_feature": "http://www.wikidata.org/entity/Q3047590",
     "located_on_terrain_featureLabel": "Kitsap Peninsula"
-  }, {
-    "lighthouse": "http://www.wikidata.org/entity/Q32857564",
-    "lighthouseLabel": "Skunk Bay Lighthouse",
-    "coordinate_location": "Point(-122.569722222 47.919166666)",
-    "instance_of": "http://www.wikidata.org/entity/Q39715",
-    "instance_ofLabel": "lighthouse",
-    "ARLHS_Lighthouse_ID": "USA0965",
-    "USCG_Lighthouse_ID": "6-16545",
-    "light_characteristic_of_lighthouse": "F fixe rouge",
-    "focal_height": "64",
-    "located_in_or_next_to_body_of_water": "http://www.wikidata.org/entity/Q604141",
-    "located_in_or_next_to_body_of_waterLabel": "Puget Sound",
-    "MarineTraffic_Lighthouse_ID": "1000020361",
-    "height": "9",
-    "located_on_terrain_feature": "http://www.wikidata.org/entity/Q3047590",
-    "located_on_terrain_featureLabel": "Kitsap Peninsula"
-  }, {
-    "lighthouse": "http://www.wikidata.org/entity/Q32857564",
-    "lighthouseLabel": "Skunk Bay Lighthouse",
-    "coordinate_location": "Point(-122.56981 47.91925)",
-    "instance_of": "http://www.wikidata.org/entity/Q39715",
-    "instance_ofLabel": "lighthouse",
-    "ARLHS_Lighthouse_ID": "USA0965",
-    "USCG_Lighthouse_ID": "6-16545",
-    "light_characteristic_of_lighthouse": "F fixe rouge",
-    "focal_height": "64",
-    "located_in_or_next_to_body_of_water": "http://www.wikidata.org/entity/Q887756",
-    "located_in_or_next_to_body_of_waterLabel": "Admiralty Inlet",
-    "MarineTraffic_Lighthouse_ID": "1000020361",
-    "height": "9",
-    "located_on_terrain_feature": "http://www.wikidata.org/entity/Q3047590",
-    "located_on_terrain_featureLabel": "Kitsap Peninsula"
-  }, {
-    "lighthouse": "http://www.wikidata.org/entity/Q32857564",
-    "lighthouseLabel": "Skunk Bay Lighthouse",
-    "coordinate_location": "Point(-122.569722222 47.919166666)",
-    "instance_of": "http://www.wikidata.org/entity/Q39715",
-    "instance_ofLabel": "lighthouse",
-    "ARLHS_Lighthouse_ID": "USA0965",
-    "USCG_Lighthouse_ID": "6-16545",
-    "light_characteristic_of_lighthouse": "F fixe rouge",
-    "focal_height": "64",
-    "located_in_or_next_to_body_of_water": "http://www.wikidata.org/entity/Q887756",
-    "located_in_or_next_to_body_of_waterLabel": "Admiralty Inlet",
-    "MarineTraffic_Lighthouse_ID": "1000020361",
-    "height": "9",
-    "located_on_terrain_feature": "http://www.wikidata.org/entity/Q3047590",
-    "located_on_terrain_featureLabel": "Kitsap Peninsula"
-  }, {
+  }, 
+  {
     "lighthouse": "http://www.wikidata.org/entity/Q42792677",
     "lighthouseLabel": "Bush Point Light",
     "coordinate_location": "Point(-122.5797 48.0274)",
@@ -270,29 +223,6 @@ export default {
     "manufacturer": "http://www.wikidata.org/entity/Q2241355",
     "manufacturerLabel": "United States Lighthouse Service",
     "GeoNames_ID": "6297584",
-    "lighthouse_range": "15",
-    "GNIS_ID": "1531715",
-    "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
-    "heritage_designationLabel": "place listed on the National Register of Historic Places",
-    "NRHP_reference_number": "71000870"
-  }, {
-    "lighthouse": "http://www.wikidata.org/entity/Q2671728",
-    "lighthouseLabel": "Point Wilson Light",
-    "coordinate_location": "Point(-122.753889 48.144167)",
-    "instance_of": "http://www.wikidata.org/entity/Q39715",
-    "instance_ofLabel": "lighthouse",
-    "ARLHS_Lighthouse_ID": "USA641",
-    "service_entry": "1914-01-01T00:00:00Z",
-    "USCG_Lighthouse_ID": "6-16475",
-    "light_characteristic_of_lighthouse": "F Occ WR 5s",
-    "focal_height": "15",
-    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Pt%20Townsend%2C%20WA%20lighthouse%2001.jpg",
-    "located_in_or_next_to_body_of_water": "http://www.wikidata.org/entity/Q604141",
-    "located_in_or_next_to_body_of_waterLabel": "Puget Sound",
-    "height": "14",
-    "manufacturer": "http://www.wikidata.org/entity/Q2241355",
-    "manufacturerLabel": "United States Lighthouse Service",
-    "GeoNames_ID": "6297584",
     "lighthouse_range": "16",
     "GNIS_ID": "1531715",
     "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
@@ -391,26 +321,8 @@ export default {
     "height": "19",
     "lighthouse_range": "26",
     "GNIS_ID": "1523890"
-  }, {
-    "lighthouse": "http://www.wikidata.org/entity/Q7145196",
-    "lighthouseLabel": "Patos Island Light",
-    "coordinate_location": "Point(-122.9715 48.789)",
-    "instance_of": "http://www.wikidata.org/entity/Q39715",
-    "instance_ofLabel": "lighthouse",
-    "ARLHS_Lighthouse_ID": "USA584",
-    "service_entry": "1908-01-01T00:00:00Z",
-    "USCG_Lighthouse_ID": "6-19825",
-    "light_characteristic_of_lighthouse": "FI(1+2) WR 15s",
-    "focal_height": "12",
-    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Patos%20island%20light.JPG",
-    "MarineTraffic_Lighthouse_ID": "1000020344",
-    "height": "8",
-    "lighthouse_range": "6",
-    "GNIS_ID": "1533195",
-    "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
-    "heritage_designationLabel": "place listed on the National Register of Historic Places",
-    "NRHP_reference_number": "77001355"
-  }, {
+  },
+  {
     "lighthouse": "http://www.wikidata.org/entity/Q7145196",
     "lighthouseLabel": "Patos Island Light",
     "coordinate_location": "Point(-122.9715 48.789)",
@@ -437,27 +349,8 @@ export default {
     "instance_ofLabel": "lighthouse",
     "service_entry": "1905-01-01T00:00:00Z",
     "service_retirement": "1944-01-01T00:00:00Z"
-  }, {
-    "lighthouse": "http://www.wikidata.org/entity/Q7986262",
-    "lighthouseLabel": "West Point Light",
-    "coordinate_location": "Point(-122.435667 47.661972)",
-    "instance_of": "http://www.wikidata.org/entity/Q39715",
-    "instance_ofLabel": "lighthouse",
-    "ARLHS_Lighthouse_ID": "USA878",
-    "service_entry": "1881-01-01T00:00:00Z",
-    "USCG_Lighthouse_ID": "6-16800",
-    "light_characteristic_of_lighthouse": "Alt WR 10s",
-    "focal_height": "8",
-    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Fort%20Lawton%20West%20Point%20Lighthouse%2003.jpg",
-    "located_in_or_next_to_body_of_water": "http://www.wikidata.org/entity/Q604141",
-    "located_in_or_next_to_body_of_waterLabel": "Puget Sound",
-    "height": "7",
-    "lighthouse_range": "13",
-    "GNIS_ID": "1509423",
-    "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
-    "heritage_designationLabel": "place listed on the National Register of Historic Places",
-    "NRHP_reference_number": "77001336"
-  }, {
+  },
+  {
     "lighthouse": "http://www.wikidata.org/entity/Q7986262",
     "lighthouseLabel": "West Point Light",
     "coordinate_location": "Point(-122.435667 47.661972)",
@@ -499,5 +392,5 @@ export default {
     "GeoNames_ID": "5810817",
     "GNIS_ID": "1530587",
     "service_retirement": "1951-01-01T00:00:00Z"
-  }]
+  }]  
 }

@@ -18,10 +18,10 @@
             <router-link class="nav-link" v-bind:to="{name: 'About'}">About</router-link>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <!-- <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" placeholder="Search" type="text">
           <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form> -->
       </div>
     </nav>
 
@@ -32,54 +32,72 @@
         <a href="#" class="alert-link">random lighthouse</a> for you.</p>
     </div> -->
 
-    <div class="form-group col-lg-3 col-md-3 col-sm-4 mt-8">
-      <label for="lighthouse-select">
-        <h2>Select a Lighthouse</h2>
-      </label>
-      <select>
-      <option v-for="lighthouse in lighthouses" id="lighthouse-select" class="form-control">
-        {{ lighthouse.lighthouseLabel }}
-      </option>
-      </select>
-    </div>
-    <div>
-      <li v-for="lighthouse in lighthouses"><a v-link="{ path: lighthouse.lighthouse }"></a></li>
-    </div>
+    <div class="row">
+      <div class="form-group col-lg-3 col-md-12 col-sm-12">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mt-8">Select a Lighthouse</h5>
+        </div>
 
-    <ul>
-      <li v-for="lighthouse in lighthouses" >
-        <p>{{ lighthouse.lighthouseLabel }}</p>
-        <img v-bind:src="lighthouse.image"/>
-      </li>
-    </ul>
+        <ul class="list-group">
+          <li v-for="lighthouse in lighthouses" v-bind:key="lighthouse.lighthouseLabel" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+            {{ lighthouse.lighthouseLabel }}
+          </li>
+        </ul>
+      </div>
+      <div class="form-group col-lg-6 col-md-12 col-sm-12">
+        <div v-for="lighthouse in lighthouses" :key="lighthouse.lighthouseLabel">
 
+          <h3>{{lighthouse.lighthouseLabel}}</h3>
+          <ul>
+            <!--TODO: Enable caching or download imgs to asset folder-->
+            <img v-bind:src="lighthouse.image" />
+            <li>Coordinates: {{lighthouse.coordinate_location}}</li>
+            <!-- <li>{{lighthouse.image}}</li> -->
+            <li>ARLHS ID: {{lighthouse.ARLHS_Lighthouse_ID}}</li>            
+            <li>USCG ID: {{lighthouse.USCG_Lighthouse_ID}}</li>
+            
+            <li>Marine Traffic ID: {{lighthouse.MarineTraffic_Lighthouse_ID}}</li>
+            <li>NRHP Ref. No.: {{lighthouse.NRHP_reference_number}}</li>
+
+          </ul>
+
+
+        </div>
+      </div>
+    </div>
   </div>
-
 </template>
 
 
 <script>
+  import featured from '@/components/Featured'
+  import lighthouses from '../lighthouses.js';
 
-import lighthouses from '../lighthouses.js';
+  export default {
+    name: 'LighthouseSearch',
+    data() {
+      return lighthouses;
+    },
+    components: {
+      featured
+    }
+  }
 
-export default {
-  name: 'LighthouseSearch',
-  data () {
-    return lighthouses
-  },
-
-}
 </script>
 
 <style scoped>
-img
-{
-  width: auto !important;
-  height: auto !important;
-  max-width: 40%;
-}
-ul {
+  img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 40%;
+  }
 
+  .form-group {
+    margin: 5%
+  }
+  ul {
+  list-style-type: none;
+  text-align: left
 }
 
 </style>
