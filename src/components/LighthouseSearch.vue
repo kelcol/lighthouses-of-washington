@@ -39,32 +39,41 @@
         </div>
 
         <ul class="list-group">
-          <li v-for="lighthouse in lighthouses" v-bind:key="lighthouse.lighthouseLabel" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
-            {{ lighthouse.lighthouseLabel }}
+          <li @click="test" v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+            {{ lighthouse.itemLabel }}
           </li>
         </ul>
       </div>
-      <div class="form-group col-lg-6 col-md-12 col-sm-12">
-        <div v-for="lighthouse in lighthouses" :key="lighthouse.lighthouseLabel">
 
-          <h3>{{lighthouse.lighthouseLabel}}</h3>
+      <div class="form-group col-lg-6 col-md-12 col-sm-12">
+
+        <featured></featured>
+
+
+        <button id="test">push</button>
+        <div v-for="lighthouse in lighthouses" :key="lighthouse.itemLabel">
+          <h3>{{lighthouse.itemLabel}}</h3>
           <ul>
             <!--TODO: Enable caching or download imgs to asset folder-->
-            <img v-bind:src="lighthouse.image" />
+            <!-- <img v-bind:src="lighthouse.image" /> -->
             <li>Coordinates: {{lighthouse.coordinate_location}}</li>
             <!-- <li>{{lighthouse.image}}</li> -->
-            <li>ARLHS ID: {{lighthouse.ARLHS_Lighthouse_ID}}</li>            
+            <li>ARLHS ID: {{lighthouse.ARLHS_Lighthouse_ID}}</li>
             <li>USCG ID: {{lighthouse.USCG_Lighthouse_ID}}</li>
-            
+
             <li>Marine Traffic ID: {{lighthouse.MarineTraffic_Lighthouse_ID}}</li>
             <li>NRHP Ref. No.: {{lighthouse.NRHP_reference_number}}</li>
-
           </ul>
-
-
         </div>
       </div>
+
+
+
+
+
+
     </div>
+
   </div>
 </template>
 
@@ -80,8 +89,17 @@
     },
     components: {
       featured
+    },
+    methods: {
+      test: function (event) {
+        alert('this works');
+        event.target.setAttribute('class','featured');
+      },
     }
   }
+
+    
+  
 
 </script>
 
@@ -95,9 +113,10 @@
   .form-group {
     margin: 5%
   }
+
   ul {
-  list-style-type: none;
-  text-align: left
-}
+    list-style-type: none;
+    text-align: left
+  }
 
 </style>
