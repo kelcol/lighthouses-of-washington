@@ -18,19 +18,8 @@
             <router-link class="nav-link" v-bind:to="{name: 'About'}">About</router-link>
           </li>
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" placeholder="Search" type="text">
-          <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
       </div>
     </nav>
-
-    <!-- <div class="alert alert-dismissible alert-warning">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h4 class="alert-heading"></h4>
-      <p class="mb-0">Not sure which lighthouse to visit? Let us pick a
-        <a href="#" class="alert-link">random lighthouse</a> for you.</p>
-    </div> -->
 
     <div class="row">
       <div class="form-group col-lg-3 col-md-12 col-sm-12">
@@ -50,12 +39,12 @@
         <featured></featured>
 
 
-        <button id="test">push</button>
+        
         <div v-for="lighthouse in lighthouses" :key="lighthouse.itemLabel">
           <h3>{{lighthouse.itemLabel}}</h3>
           <ul>
             <!--TODO: Enable caching or download imgs to asset folder-->
-            <!-- <img v-bind:src="lighthouse.image" /> -->
+            <img v-bind:src="lighthouse.image" />
             <li>Coordinates: {{lighthouse.coordinate_location}}</li>
             <!-- <li>{{lighthouse.image}}</li> -->
             <li>ARLHS ID: {{lighthouse.ARLHS_Lighthouse_ID}}</li>
@@ -67,11 +56,6 @@
         </div>
       </div>
 
-
-
-
-
-
     </div>
 
   </div>
@@ -79,44 +63,42 @@
 
 
 <script>
-  import featured from '@/components/Featured'
-  import lighthouses from '../lighthouses.js';
+import featured from "@/components/Featured";
+import lighthouses from "../lighthouses.js";
 
-  export default {
-    name: 'LighthouseSearch',
-    data() {
-      return lighthouses;
-    },
-    components: {
-      featured
-    },
-    methods: {
-      test: function (event) {
-        alert('this works');
-        event.target.setAttribute('class','featured');
-      },
+export default {
+  name: "LighthouseSearch",
+  data() {
+    return lighthouses;
+  },
+  components: {
+    featured
+  },
+  methods: {
+    test: function(event) {
+      event.target.classList.add("featured");
     }
   }
-
-    
-  
-
+};
 </script>
 
 <style scoped>
-  img {
-    width: auto !important;
-    height: auto !important;
-    max-width: 40%;
-  }
+img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 40%;
+}
 
-  .form-group {
-    margin: 5%
-  }
+.form-group {
+  margin: 5%;
+}
 
-  ul {
-    list-style-type: none;
-    text-align: left
-  }
+ul {
+  list-style-type: none;
+  text-align: left;
+}
 
+.featured {
+  color: blue;
+}
 </style>
