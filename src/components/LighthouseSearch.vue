@@ -18,105 +18,96 @@
             <router-link class="nav-link" v-bind:to="{name: 'About'}">About</router-link>
           </li>
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" placeholder="Search" type="text">
-          <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
       </div>
     </nav>
 
-    <!-- <div class="alert alert-dismissible alert-warning">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h4 class="alert-heading"></h4>
-      <p class="mb-0">Not sure which lighthouse to visit? Let us pick a
-        <a href="#" class="alert-link">random lighthouse</a> for you.</p>
-    </div> -->
-
     <div class="row">
+
       <div class="form-group col-lg-3 col-md-12 col-sm-12">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mt-8">Select a Lighthouse</h5>
         </div>
 
         <ul class="list-group">
-          <li @click="test" v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setFeatured(lighthouse);getCoords(lighthouse)" v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse"  v-model="featured">
             {{ lighthouse.itemLabel }}
+
           </li>
         </ul>
       </div>
 
       <div class="form-group col-lg-6 col-md-12 col-sm-12">
+        <h2>Stuff</h2>
+        <h1>{{ name }}</h1>
 
         <featured></featured>
+        
 
-
-        <button id="test">push</button>
-        <div v-for="lighthouse in lighthouses" :key="lighthouse.itemLabel">
-          <h3>{{lighthouse.itemLabel}}</h3>
-          <ul>
-            <!--TODO: Enable caching or download imgs to asset folder-->
-            <!-- <img v-bind:src="lighthouse.image" /> -->
-            <li>Coordinates: {{lighthouse.coordinate_location}}</li>
-            <!-- <li>{{lighthouse.image}}</li> -->
-            <li>ARLHS ID: {{lighthouse.ARLHS_Lighthouse_ID}}</li>
-            <li>USCG ID: {{lighthouse.USCG_Lighthouse_ID}}</li>
-
-            <li>Marine Traffic ID: {{lighthouse.MarineTraffic_Lighthouse_ID}}</li>
-            <li>NRHP Ref. No.: {{lighthouse.NRHP_reference_number}}</li>
-          </ul>
-        </div>
       </div>
 
+    </div>
 
-
-
-
+    <div>
 
     </div>
 
   </div>
 </template>
 
-
 <script>
-  import featured from '@/components/Featured'
-  import lighthouses from '../lighthouses.js';
+import featured from "@/components/Featured";
+import lighthouses from "../lighthouses.js";
+import {API} from '@/common/api';
+import WeatherSummary from '@/components/WeatherSummary';
+import WeatherData from '@/components/WeatherData';
 
-  export default {
-    name: 'LighthouseSearch',
-    data() {
-      return lighthouses;
+export default {
+  name: "LighthouseSearch",
+  data() { 
+    return lighthouses
+  },
+  components: {
+    featured: featured,
+    'weather-summary': WeatherSummary,
+    'weather-data': WeatherData,
+  },
+  methods: {
+    setFeatured: function(lighthouse) {
+      this.name = lighthouse.itemLabel;
+      console.log(this.name);
     },
-    components: {
-      featured
-    },
-    methods: {
-      test: function (event) {
-        alert('this works');
-        event.target.setAttribute('class','featured');
-      },
+    getCoords: function(lighthouse) {
+      let coords = lighthouse.coordinate_location;
+      this.coords = coords.slice(6,-1).split(" ");
+      this.lat = Math.ceil(this.coords[0]);
+      this.lon = Math.ceil(this.coords[1]);
+      console.log(this.lat, this.lon);
     }
+  },
+  watch: {
+    selected: function(lighthouse) {
+      let featured = this.lighthouse
+      console.log(featured.itemLabel);
+    }
+
   }
-
-    
-  
-
+};
 </script>
 
 <style scoped>
-  img {
-    width: auto !important;
-    height: auto !important;
-    max-width: 40%;
-  }
-
-  .form-group {
-    margin: 5%
-  }
-
-  ul {
-    list-style-type: none;
-    text-align: left
-  }
-
+img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 40%;
+}
+.form-group {
+  margin: 5%;
+}
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+.featured {
+  color: blue;
+}
 </style>
