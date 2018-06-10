@@ -29,7 +29,7 @@
         </div>
 
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setFeatured(lighthouse);getCoords(lighthouse)" v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse"  v-model="featured">
+          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setFeatured(lighthouse);getCoords(lighthouse)" v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">
             {{ lighthouse.itemLabel }}
 
           </li>
@@ -38,7 +38,7 @@
 
       <div class="form-group col-lg-6 col-md-12 col-sm-12">
         <h2>Stuff</h2>
-        <h1>{{ name }}</h1>
+        <h1>{{ this.name }}</h1>
 
         <featured></featured>
         
@@ -75,6 +75,7 @@ export default {
     setFeatured: function(lighthouse) {
       this.name = lighthouse.itemLabel;
       console.log(this.name);
+      return this.name
     },
     getCoords: function(lighthouse) {
       let coords = lighthouse.coordinate_location;
