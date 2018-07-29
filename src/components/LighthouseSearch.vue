@@ -29,7 +29,8 @@
         </div>
 
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setFeatured(lighthouse);getCoords(lighthouse)" v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">
+          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setFeatured(lighthouse);getCoords(lighthouse)"
+            v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">
             {{ lighthouse.itemLabel }}
 
           </li>
@@ -37,29 +38,44 @@
       </div>
 
       <div class="form-group col-lg-6 col-md-12 col-sm-12">
-        <h2>Stuff</h2>
-        <h1>{{ this.name }}</h1>
 
-        <featured></featured>
-        
+        <div class="card mb-5" v-for="lighthouse in lighthouses" :key="lighthouse.itemLabel">
+          <h3 class="card-header mb-3">{{ lighthouse.itemLabel }}</h3>
+          <ul>
+            <!--TODO: Enable caching or download imgs to asset folder-->
+            <img v-bind:src="lighthouse.image" />
 
+            <li v-if="lighthouse.coordinate_location != null">
+              <strong>Coordinates: </strong>{{ lighthouse.coordinate_location }}</li>
+
+            <li v-if="lighthouse.inception != null">
+              <strong>Inception: </strong>{{ lighthouse.inception }}</li>
+
+            <li v-if="lighthouse.ARLHS_Lighthouse_ID != null">
+              <strong>ARLHS ID:</strong> {{ lighthouse.ARLHS_Lighthouse_ID }}</li>
+
+            <li v-if="lighthouse.USCG_Lighthouse_ID != null">
+              <strong>USCG ID:</strong> {{ lighthouse.USCG_Lighthouse_ID }}</li>
+
+            <li v-if="lighthouse.MarineTraffic_Lighthouse_ID != null">
+              <strong>Marine Traffic ID:</strong> {{ lighthouse.MarineTraffic_Lighthouse_ID }}</li>
+
+            <li v-if="lighthouse.NRHP_reference_number != null">
+              <strong>NRHP Ref. No.:</strong> {{ lighthouse.NRHP_reference_number }}</li>
+
+            <li v-if="lighthouse.GeoNames_ID != null">
+              <strong>GeoNames ID:</strong> {{ lighthouse.GeoNames_ID }}</li>
+          </ul>
+        </div>
       </div>
-
     </div>
-
     <div>
-
     </div>
-
   </div>
 </template>
 
 <script>
-import featured from "@/components/Featured";
 import lighthouses from "../lighthouses.js";
-import {API} from '@/common/api';
-import WeatherSummary from '@/components/WeatherSummary';
-import WeatherData from '@/components/WeatherData';
 
 export default {
   name: "LighthouseSearch",
@@ -67,31 +83,21 @@ export default {
     return lighthouses
   },
   components: {
-    featured: featured,
-    'weather-summary': WeatherSummary,
-    'weather-data': WeatherData,
+
   },
   methods: {
     setFeatured: function(lighthouse) {
       this.name = lighthouse.itemLabel;
       console.log(this.name);
-      return this.name
     },
     getCoords: function(lighthouse) {
       let coords = lighthouse.coordinate_location;
       this.coords = coords.slice(6,-1).split(" ");
       this.lat = Math.ceil(this.coords[0]);
-      this.lon = Math.ceil(this.coords[1]);
-      console.log(this.lat, this.lon);
+      this.long = Math.ceil(this.coords[1]);
+      console.log(this.lat, this.long);
     }
   },
-  watch: {
-    selected: function(lighthouse) {
-      let featured = this.lighthouse
-      console.log(featured.itemLabel);
-    }
-
-  }
 };
 </script>
 
@@ -99,7 +105,7 @@ export default {
 img {
   width: auto !important;
   height: auto !important;
-  max-width: 40%;
+  max-width: 80%;
 }
 .form-group {
   margin: 5%;
