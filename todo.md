@@ -2,7 +2,7 @@
 
 ## Data things
 - [X] Remove extra property fields from single value fields in wikidata lighthouse entries (to prevent dupes)
-- [X] Pull new lighthouse data 
+- [ ] Write script to retrieve new data whenever page is loaded
 
 ## UI things
 - [ ] Add content to About page or remove
@@ -15,6 +15,9 @@
 - [ ] Make lighthouse list functional
 - [ ] Show only to"Featured/Selected" lighthouse
 - [ ] Add widget showing weather data for selected loc
+- [ ] Display nighttime view if image is available and it's after dark at user loc
+- [ ] Make coords and date more readable
+- [ ] Hyperlink identifiers to authority's resource page
 
 ## SPARQL QUERY
 ```
