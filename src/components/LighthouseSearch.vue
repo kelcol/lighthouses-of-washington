@@ -1,5 +1,6 @@
 <template>
   <div class="lighthouse-search">
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
       <a class="navbar-brand" href="#">Lighthouses of Washington</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
@@ -27,22 +28,24 @@
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mt-8">Select a Lighthouse</h5>
         </div>
-
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setFeatured(lighthouse);getCoords(lighthouse)"
+          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setActive(lighthouse);getCoords(lighthouse)"
             v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">
-            {{ lighthouse.itemLabel }}
-
+            {{ lighthouse.itemLabel }}            
           </li>
         </ul>
       </div>
 
-      <div class="form-group col-lg-6 col-md-12 col-sm-12">
+      <!-- TODO: Figure out why this component isn't getting data
+      <featured v-for="lighthouse in lighthouses" :key="lighthouse.itemLabel"></featured>-->
 
-        <div class="card mb-5" v-for="lighthouse in lighthouses" :key="lighthouse.itemLabel">
+      <div class="form-group col-lg-6 col-md-12 col-sm-12">
+        <div class="card mb-5" 
+          v-for="lighthouse in lighthouses" 
+          :key="lighthouse.itemLabel">
           <h3 class="card-header mb-3">{{ lighthouse.itemLabel }}</h3>
           <ul>
-            <!--TODO: Enable caching or download imgs to asset folder-->
+            
             <img v-bind:src="lighthouse.image" />
 
             <li v-if="lighthouse.coordinate_location != null">
@@ -68,6 +71,9 @@
           </ul>
         </div>
       </div>
+
+
+
     </div>
     <div>
     </div>
@@ -76,6 +82,7 @@
 
 <script>
 import lighthouses from "../lighthouses.js";
+// import Featured from "../components/Featured"
 
 export default {
   name: "LighthouseSearch",
@@ -83,12 +90,20 @@ export default {
     return lighthouses
   },
   components: {
+    // featured: Featured
+  },
+  props: {
+    
+
 
   },
   methods: {
-    setFeatured: function(lighthouse) {
-      this.name = lighthouse.itemLabel;
-      console.log(this.name);
+    setActive: function(lighthouse) {
+      // this.isActive == !this.isActive;
+      // console.log(this.isActive);
+      let name = lighthouse.itemLabel;
+      this.name = name;
+      console.log(this.name)
     },
     getCoords: function(lighthouse) {
       let coords = lighthouse.coordinate_location;
@@ -98,9 +113,20 @@ export default {
       console.log(this.lat, this.long);
     }
   },
+  computed: {
+    showLighthouse: function() {
+      if (this.isActive) {
+        // show lighthouse div
+      } else {
+        // show ligththouse div
+      };
+      return this.isActive;
+    }
+    
+  }
 };
-</script>
 
+</script>
 <style scoped>
 img {
   width: auto !important;

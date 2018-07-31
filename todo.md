@@ -43,3 +43,4 @@ SELECT DISTINCT ?itemLabel?image ?nighttime_view ?coordinate_location ?located_i
 }
 ORDER BY ?itemLabel
 ```
+
