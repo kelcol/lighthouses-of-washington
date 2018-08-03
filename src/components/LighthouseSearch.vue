@@ -1,6 +1,5 @@
 <template>
-  <div class="lighthouse-search">
-
+  <div>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
       <a class="navbar-brand" href="#">Lighthouses of Washington</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
@@ -28,17 +27,22 @@
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mt-8">Select a Lighthouse</h5>
         </div>
+
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setActive(lighthouse);getCoords(lighthouse)"
+          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setActive(lighthouse)"
             v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">
-            {{ lighthouse.itemLabel }}            
+            {{ lighthouse.itemLabel }}
+
           </li>
         </ul>
+
       </div>
 
-      <featured v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" v-bind:info="lighthouse"></featured>
+            <!-- <featured v-show="isFeatured" v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" v-bind:info="lighthouse"></featured> -->
+
 
     </div>
+          <featured v-bind:info="lh" v-bind:key="lh.itemLabel"></featured>
     <div>
     </div>
   </div>
@@ -54,32 +58,19 @@ export default {
   data() { 
     return {
       lighthouses: lighthouses,
+      lh: ''
   }
   },
   components: {
     featured: Featured,
   },
-  methods: {
+  methods: {    
     setActive: function(lighthouse) {
-      // this.isActive == !this.isActive;
-      // console.log(this.isActive);
-      let name = lighthouse.itemLabel;
-      this.name = name;
-      console.log(this.name)
+      this.lh = lighthouse;
+      console.log(this.lh.itemLabel);
     },
-    getCoords: function(lighthouse) {
-      let coords = lighthouse.coordinate_location;
-      this.coords = coords.slice(6,-1).split(" ");
-      this.lat = Math.ceil(this.coords[0]);
-      this.long = Math.ceil(this.coords[1]);
-      console.log(this.lat, this.long);
-    }
   },
   computed: {
-    showLighthouse: function() {
-      let name = lighthouse.itemLabel;
-      this.name = name;
-  }
   }
 };
 
