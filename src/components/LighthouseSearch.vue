@@ -1,12 +1,12 @@
 <template>
   <div>
+    
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
       <a class="navbar-brand" href="#">Lighthouses of Washington</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -29,7 +29,7 @@
         </div>
 
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center" @click="setActive(lighthouse)"
+          <li class="list-group-item d-flex justify-content-between align-items-center" id="lighthouse" @click="setActive(lighthouse, $event)"
             v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">
             {{ lighthouse.itemLabel }}
 
@@ -38,11 +38,10 @@
 
       </div>
 
-            <!-- <featured v-show="isFeatured" v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" v-bind:info="lighthouse"></featured> -->
-
+    <featured v-bind:info="lh" v-bind:key="lh.itemLabel"></featured>
 
     </div>
-          <featured v-bind:info="lh" v-bind:key="lh.itemLabel"></featured>
+          
     <div>
     </div>
   </div>
@@ -55,7 +54,7 @@ import Featured from "@/components/Featured";
 
 export default {
   name: "LighthouseSearch",
-  data() { 
+  data: function() { 
     return {
       lighthouses: lighthouses,
       lh: ''
@@ -65,9 +64,11 @@ export default {
     featured: Featured,
   },
   methods: {    
-    setActive: function(lighthouse) {
+    setActive: function(lighthouse, event) {
       this.lh = lighthouse;
       console.log(this.lh.itemLabel);
+      let activeItem = event.target;
+      activeItem.className += ' featured';
     },
   },
   computed: {
@@ -75,3 +76,14 @@ export default {
 };
 
 </script>
+<style scoped>
+
+.form-group {
+  margin: 5%;
+}
+
+.featured {
+      color: #42b983;
+    }
+  
+</style>

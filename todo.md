@@ -44,3 +44,12 @@ SELECT DISTINCT ?itemLabel?image ?nighttime_view ?coordinate_location ?located_i
 ORDER BY ?itemLabel
 ```
 
+# Scratchpad
+
+    getCoords: function(lighthouse) {
+      let coords = lighthouse.coordinate_location;
+      this.coords = coords.slice(6,-1).split(" ");
+      this.lat = Math.ceil(this.coords[0]);
+      this.long = Math.ceil(this.coords[1]);
+      console.log(this.lat, this.long);
+    }

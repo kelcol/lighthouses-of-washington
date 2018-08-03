@@ -26,7 +26,7 @@
           <strong>NRHP Ref. No.:</strong> {{ info.NRHP_reference_number }}</li>
   
         <li v-if="info.GeoNames_ID != null">
-          <strong>GeoNames ID:</strong> {{ info.GeoNames_ID }}</li>
+          <strong>GeoNames ID:</strong> <v-bind:src="">{{ info.GeoNames_ID }}</li>
       </ul>
   
     </div>
