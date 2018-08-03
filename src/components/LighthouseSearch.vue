@@ -36,43 +36,7 @@
         </ul>
       </div>
 
-      <!-- TODO: Figure out why this component isn't getting data
-      <featured v-for="lighthouse in lighthouses" :key="lighthouse.itemLabel"></featured>-->
-
-      <div class="form-group col-lg-6 col-md-12 col-sm-12">
-        <div class="card mb-5" 
-          v-for="lighthouse in lighthouses" 
-          :key="lighthouse.itemLabel">
-          <h3 class="card-header mb-3">{{ lighthouse.itemLabel }}</h3>
-          <ul>
-            
-            <img v-bind:src="lighthouse.image" />
-
-            <li v-if="lighthouse.coordinate_location != null">
-              <strong>Coordinates: </strong>{{ lighthouse.coordinate_location }}</li>
-
-            <li v-if="lighthouse.inception != null">
-              <strong>Inception: </strong>{{ lighthouse.inception }}</li>
-
-            <li v-if="lighthouse.ARLHS_Lighthouse_ID != null">
-              <strong>ARLHS ID:</strong> {{ lighthouse.ARLHS_Lighthouse_ID }}</li>
-
-            <li v-if="lighthouse.USCG_Lighthouse_ID != null">
-              <strong>USCG ID:</strong> {{ lighthouse.USCG_Lighthouse_ID }}</li>
-
-            <li v-if="lighthouse.MarineTraffic_Lighthouse_ID != null">
-              <strong>Marine Traffic ID:</strong> {{ lighthouse.MarineTraffic_Lighthouse_ID }}</li>
-
-            <li v-if="lighthouse.NRHP_reference_number != null">
-              <strong>NRHP Ref. No.:</strong> {{ lighthouse.NRHP_reference_number }}</li>
-
-            <li v-if="lighthouse.GeoNames_ID != null">
-              <strong>GeoNames ID:</strong> {{ lighthouse.GeoNames_ID }}</li>
-          </ul>
-        </div>
-      </div>
-
-
+      <featured v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" v-bind:info="lighthouse"></featured>
 
     </div>
     <div>
@@ -81,21 +45,19 @@
 </template>
 
 <script>
+
 import lighthouses from "../lighthouses.js";
-// import Featured from "../components/Featured"
+import Featured from "@/components/Featured";
 
 export default {
   name: "LighthouseSearch",
   data() { 
-    return lighthouses
+    return {
+      lighthouses: lighthouses,
+  }
   },
   components: {
-    // featured: Featured
-  },
-  props: {
-    
-
-
+    featured: Featured,
   },
   methods: {
     setActive: function(lighthouse) {
@@ -115,32 +77,10 @@ export default {
   },
   computed: {
     showLighthouse: function() {
-      if (this.isActive) {
-        // show lighthouse div
-      } else {
-        // show ligththouse div
-      };
-      return this.isActive;
-    }
-    
+      let name = lighthouse.itemLabel;
+      this.name = name;
+  }
   }
 };
 
 </script>
-<style scoped>
-img {
-  width: auto !important;
-  height: auto !important;
-  max-width: 80%;
-}
-.form-group {
-  margin: 5%;
-}
-ul {
-  list-style-type: none;
-  text-align: left;
-}
-.featured {
-  color: blue;
-}
-</style>

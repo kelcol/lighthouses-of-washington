@@ -1,5 +1,4 @@
-export default {
-  "lighthouses": 
+export default   
   [{
     "itemLabel": "Admiralty Head Light",
     "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Admiralty%20head%20Lighthouse.jpg",
@@ -213,5 +212,4 @@ export default {
     "service_entry": "1858-01-01T00:00:00Z",
     "service_retirement": "1938-01-01T00:00:00Z"
   }]
-   
-}
+

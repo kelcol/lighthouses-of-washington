@@ -1,49 +1,66 @@
 <template>
-<div class="form-group col-lg-6 col-md-12 col-sm-12">
-  <div class="card mb-5">
-    <h3 class="card-header mb-3">{{ lighthouse.itemLabel }}</h3>
-    <ul>
-      <!--TODO: Enable caching or download imgs to asset folder-->
-      <img v-bind:src="lighthouse.image" />
-
-      <li v-if="lighthouse.coordinate_location != null">
-        <strong>Coordinates: </strong>{{ lighthouse.coordinate_location }}</li>
-
-      <li v-if="lighthouse.inception != null">
-        <strong>Inception: </strong>{{ lighthouse.inception }}</li>
-
-      <li v-if="lighthouse.ARLHS_Lighthouse_ID != null">
-        <strong>ARLHS ID:</strong> {{ lighthouse.ARLHS_Lighthouse_ID }}</li>
-
-      <li v-if="lighthouse.USCG_Lighthouse_ID != null">
-        <strong>USCG ID:</strong> {{ lighthouse.USCG_Lighthouse_ID }}</li>
-
-      <li v-if="lighthouse.MarineTraffic_Lighthouse_ID != null">
-        <strong>Marine Traffic ID:</strong> {{ lighthouse.MarineTraffic_Lighthouse_ID }}</li>
-
-      <li v-if="lighthouse.NRHP_reference_number != null">
-        <strong>NRHP Ref. No.:</strong> {{ lighthouse.NRHP_reference_number }}</li>
-
-      <li v-if="lighthouse.GeoNames_ID != null">
-        <strong>GeoNames ID:</strong> {{ lighthouse.GeoNames_ID }}</li>
-    </ul>
-  </div>
-  </div>
-
-</template>
+  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+    <div class="card mb-5">
+      <h3 class="card-header mb-3">{{ info.itemLabel }}</h3>
+          
+      <ul>
+        <!--TODO: Enable caching or download imgs to asset folder-->
+        <img v-bind:src="info.image" />
+  
+        <li v-if="info.coordinate_location != null">
+          <strong>Coordinates: </strong>{{ info.coordinate_location }}</li>
+  
+        <li v-if="info.inception != null">
+          <strong>Inception: </strong>{{ info.inception }}</li>
+  
+        <li v-if="info.ARLHS_Lighthouse_ID != null">
+          <strong>ARLHS ID:</strong> {{ info.ARLHS_Lighthouse_ID }}</li>
+  
+        <li v-if="info.USCG_Lighthouse_ID != null">
+          <strong>USCG ID:</strong> {{ info.USCG_Lighthouse_ID }}</li>
+  
+        <li v-if="info.MarineTraffic_Lighthouse_ID != null">
+          <strong>Marine Traffic ID:</strong> {{ info.MarineTraffic_Lighthouse_ID }}</li>
+  
+        <li v-if="info.NRHP_reference_number != null">
+          <strong>NRHP Ref. No.:</strong> {{ info.NRHP_reference_number }}</li>
+  
+        <li v-if="info.GeoNames_ID != null">
+          <strong>GeoNames ID:</strong> {{ info.GeoNames_ID }}</li>
+      </ul>
+  
+    </div>
+    </div>
+  
+  </template>
 
 <script>
-import lighthouses from "../lighthouses.js";
 
 export default {
   name: 'featured',
   data () {
-    return lighthouses
+    
   },
+  props: ['info']
 }
 
   
 </script>
 
-
-
+<style scoped>
+img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 40%;
+}
+.form-group {
+  margin: 5%;
+}
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+.featured {
+  color: blue;
+}
+</style>
