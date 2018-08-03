@@ -28,16 +28,9 @@
           <h5 class="mt-8">Select a Lighthouse</h5>
         </div>
 
-      <!-- <router-link 
-          v-for="lighthouse in lighthouses" 
-          :key="lighthouse.itemLabel" 
-          active-class="is-active" 
-          class="link" 
-          :to="{ name: 'lighthouse', params: { id: lighthouse.itemLabel } }"></router-link> -->
-
-
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center" id="lighthouse" @click="setActive(lighthouse, $event)"
+          <li class="list-group-item d-flex justify-content-between align-items-center" id="lighthouse" 
+            @click="setActive(lighthouse, $event)"
             v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">
             {{ lighthouse.itemLabel }}
           </li>
@@ -45,7 +38,7 @@
 
       </div>
 
-    <featured v-bind:info="lh" v-bind:key="lh.itemLabel"></featured>
+    <featured :info="lh" v-bind:key="lh.itemLabel"></featured>
 
     </div>
           
@@ -63,8 +56,9 @@ export default {
   name: "LighthouseSearch",
   data: function() { 
     return {
+      parentVal: 'value of parent',
       lighthouses: lighthouses,
-      lh: ''
+      lh: '',
   }
   },
   components: {

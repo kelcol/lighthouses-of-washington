@@ -8,10 +8,10 @@
         <img v-bind:src="info.image" />
   
         <li v-if="info.coordinate_location != null">
-          <strong>Coordinates: </strong>{{ info.coordinate_location }}</li>
+          <strong>Coordinates: </strong>{{ info.coordinate_location.substring(6, 22).split(' ').join(', ') }}</li>
   
         <li v-if="info.inception != null">
-          <strong>Inception: </strong>{{ info.inception }}</li>
+          <strong>Inception: </strong>{{ info.inception.substring(0, 4) }}</li>
   
         <li v-if="info.ARLHS_Lighthouse_ID != null">
           <strong>ARLHS ID:</strong> {{ info.ARLHS_Lighthouse_ID }}</li>
@@ -26,7 +26,7 @@
           <strong>NRHP Ref. No.:</strong> {{ info.NRHP_reference_number }}</li>
   
         <li v-if="info.GeoNames_ID != null">
-          <strong>GeoNames ID:</strong> <v-bind:src="">{{ info.GeoNames_ID }}</li>
+          <strong>GeoNames ID:</strong> {{ info.GeoNames_ID }}</li>
       </ul>
   
     </div>
@@ -41,10 +41,15 @@ export default {
   data () {
     
   },
-  props: ['info']
+  props: ['info'],
+  watch: {
+    info: function(newLh, oldLh) {
+      console.log('Prop changed: ', newLh, ' | was: ', oldLh)
+    }
+  }
 }
 
-  
+
 </script>
 
 <style scoped>
