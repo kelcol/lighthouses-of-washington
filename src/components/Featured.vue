@@ -39,6 +39,9 @@
 export default {
   name: 'featured',
   data () {
+    return {
+
+    }
     
   },
   props: ['info'],
