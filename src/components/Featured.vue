@@ -14,19 +14,29 @@
           <strong>Inception: </strong>{{ info.inception.substring(0, 4) }}</li>
   
         <li v-if="info.ARLHS_Lighthouse_ID != null">
-          <strong>ARLHS ID:</strong> {{ info.ARLHS_Lighthouse_ID }}</li>
+          <strong>ARLHS ID:</strong> 
+            <a target="_blank" :href="ARLHS_href">
+                {{ info.ARLHS_Lighthouse_ID }}
+            </a>
+          </li>
   
         <li v-if="info.USCG_Lighthouse_ID != null">
           <strong>USCG ID:</strong> {{ info.USCG_Lighthouse_ID }}</li>
   
-        <li v-if="info.MarineTraffic_Lighthouse_ID != null">
-          <strong>Marine Traffic ID:</strong> {{ info.MarineTraffic_Lighthouse_ID }}</li>
-  
         <li v-if="info.NRHP_reference_number != null">
-          <strong>NRHP Ref. No.:</strong> {{ info.NRHP_reference_number }}</li>
+          <strong>NRHP Ref. No.:</strong> 
+            <a target="_blank" :href="NHRP_href">
+                {{info.NRHP_reference_number }}
+            </a>
+          </li>
   
         <li v-if="info.GeoNames_ID != null">
-          <strong>GeoNames ID:</strong> {{ info.GeoNames_ID }}</li>
+          <strong>GeoNames ID:</strong> 
+          <a target="_blank" :href="GeoNames_href">
+            {{ info.GeoNames_ID }}
+          </a>
+        </li>
+
       </ul>
   
     </div>
@@ -35,23 +45,34 @@
   </template>
 
 <script>
+import axios from 'axios';
 
 export default {
   name: 'featured',
   data () {
     return {
-
-    }
-    
+      results: [],
+      errors: []
+    }    
   },
   props: ['info'],
-  watch: {
-    info: function(newLh, oldLh) {
-      console.log('Prop changed: ', newLh, ' | was: ', oldLh)
-    }
+  created () {
+  },
+  computed: {
+    GeoNames_href () {
+      let id = this.info.GeoNames_ID;
+      return `http://www.geonames.org/${id}`;
+    },
+    ARLHS_href () {
+      let id = this.info.ARLHS_Lighthouse_ID;
+      return `http://wlol.arlhs.com/lighthouse/${id}.html`;
+    },
+    NHRP_href () {
+      let id = this.info.NRHP_reference_number;
+      return `https://npgallery.nps.gov/SearchResults?search_param=all&allFields=${id}`;
   }
 }
-
+}
 
 </script>
 
