@@ -1,9 +1,11 @@
 .DS_Store
 node_modules/
 /dist/
+/planning-docs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.gitignode
 
 # Editor directories and files
 .idea

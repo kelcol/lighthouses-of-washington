@@ -4,11 +4,10 @@
       <h3 class="card-header mb-3">{{ info.itemLabel }}</h3>
           
       <ul>
-        <!--TODO: Enable caching or download imgs to asset folder-->
-        <img v-bind:src="info.image" />
+        <!-- <img v-bind:src="info.image" /> -->
   
         <li v-if="info.coordinate_location != null">
-          <strong>Coordinates: </strong>{{ info.coordinate_location.substring(6, 22).split(' ').join(', ') }}</li>
+          <strong>Coordinates: </strong>{{ coords }}</li>
   
         <li v-if="info.inception != null">
           <strong>Inception: </strong>{{ info.inception.substring(0, 4) }}</li>
@@ -45,15 +44,12 @@
   </template>
 
 <script>
-import axios from 'axios';
 
 export default {
   name: 'featured',
-  data () {
+  data(){
     return {
-      results: [],
-      errors: []
-    }    
+    }
   },
   props: ['info'],
   created () {
@@ -70,6 +66,11 @@ export default {
     NHRP_href () {
       let id = this.info.NRHP_reference_number;
       return `https://npgallery.nps.gov/SearchResults?search_param=all&allFields=${id}`;
+  },
+  coords () {
+    return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ').join(', ');
+
+    
   }
 }
 }

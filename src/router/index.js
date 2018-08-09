@@ -18,13 +18,6 @@ export default new Router({
       name: 'About',
       component: About
     },
-    {
-      path: '/lighthouse/:id',
-      name: 'lighthouse',
-      component: Featured,
-      props: true
-    }
-
-
   ]
 })
+  
