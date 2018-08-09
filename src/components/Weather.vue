@@ -31,10 +31,10 @@ export default {
   // FIX: [Vue warn]: Error in render: "TypeError: this.info.coordinate_location is undefined"
   computed: {
     lat () {
-      return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0];
+      return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1];
       },
     long () {
-      return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1];
+      return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0];
       }
 }
 }
