@@ -30,7 +30,7 @@
 
     <featured :info="lh" v-bind:key="lh.itemLabel"></featured>
     <weather :info="lh" v-bind:key="lh.coordinate_location"></weather>
-    <gmap :info="lh" v-bind:key="lh.coordinate_location"></gmap>
+    <gmap :info="lh" v-bind:key="lh.GeoNames_ID"></gmap>
 
     </div>
           
