@@ -29,8 +29,8 @@
     <div class="row">
 
     <featured :info="lh" v-bind:key="lh.itemLabel"></featured>
-
     <weather :info="lh" v-bind:key="lh.coordinate_location"></weather>
+    <gmap :info="lh" v-bind:key="lh.coordinate_location"></gmap>
 
     </div>
           
@@ -44,6 +44,7 @@
 import lighthouses from "../lighthouses.js";
 import Featured from "@/components/Featured";
 import Weather from "@/components/Weather";
+import GMap from "@/components/GMap"
 
 export default {
   name: "LighthouseSearch",
@@ -56,7 +57,8 @@ export default {
   },
   components: {
     featured: Featured,
-    weather: Weather
+    weather: Weather,
+    gmap: GMap,
   },
   methods: {    
     setActive: function(lighthouse, event) {
