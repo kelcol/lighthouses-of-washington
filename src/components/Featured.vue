@@ -4,7 +4,7 @@
       <h3 class="card-header mb-3">{{ info.itemLabel }}</h3>
           
       <ul>
-        <!-- <img v-bind:src="info.image" /> -->
+        <img v-bind:src="info.image" />
   
         <li v-if="info.coordinate_location != null">
           <strong>Coordinates: </strong>{{ coords }}</li>
