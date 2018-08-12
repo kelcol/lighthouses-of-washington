@@ -1,12 +1,14 @@
 <template>
-      <div class="form-group col-lg-9 col-md-12 col-sm-12">
-     <h2>Map (not working yet but close-ish)</h2>
+      <div class="form-group col-lg-3 col-md-12 col-sm-12">
+    <div class="card mb-5">
+      <h3 class="card-header mb-3">Map (not working yet but close-ish)</h3>
      <h3>lat: {{ lat }}</h3>   
      <h3>long: {{ long }}</h3>  
 
-    <gmap-map v-bind:center="center" v-bind:zoom="10" style="height: 300px">
+    <gmap-map v-bind:center="center" v-bind:zoom="15" style="width: 1000px; height: 1000px">
     <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true"></gmap-marker></gmap-map>
   </div>  
+  </div>
 </template>
 
 <script>
