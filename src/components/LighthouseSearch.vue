@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2></h2>
     
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
       <a class="navbar-brand" href="#">Lighthouses of Washington</a>
@@ -26,12 +27,10 @@
         <option v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">{{ lighthouse.itemLabel }}</option>
       </select>
 
-    <div class="row">
-
-    <featured :info="lh" v-bind:key="lh.itemLabel"></featured>
-    <weather :info="lh" v-bind:key="lh.coordinate_location"></weather>
-    <gmap :info="lh" v-bind:key="lh.GeoNames_ID"></gmap>
-
+      <div v-if="lh">
+        <featured :info="lh" v-bind:key="lh.itemLabel"></featured>
+        <weather :info="lh" v-bind:key="lh.coordinate_location"></weather>        
+        <gmap :lat="lhLat" :long="lhLong"></gmap>
     </div>
           
     <div>
@@ -40,11 +39,10 @@
 </template>
 
 <script>
-
 import lighthouses from "../lighthouses.js";
 import Featured from "@/components/Featured";
+import GMap from "@/components/GMap";
 import Weather from "@/components/Weather";
-import GMap from "@/components/GMap"
 
 export default {
   name: "LighthouseSearch",
@@ -59,6 +57,7 @@ export default {
     featured: Featured,
     weather: Weather,
     gmap: GMap,
+   
   },
   methods: {    
     setActive: function(lighthouse, event) {
@@ -67,9 +66,15 @@ export default {
       activeItem.className += ' featured';
     },
   },
-  computed: {
-  }
-};
+computed: {
+    lhLat () {
+      return this.lh.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1];
+      },
+    lhLong () {
+      return this.lh.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0];
+      }
+},
+}
 
 </script>
 <style scoped>

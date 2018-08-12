@@ -1,12 +1,13 @@
 <template>
-      <div class="form-group col-lg-3 col-md-12 col-sm-12">
+      <div class="form-group col-lg-4 col-md-12 col-sm-12">
     <div class="card mb-5">
-      <h3 class="card-header mb-3">Map (not working yet but close-ish)</h3>
+      <h3 class="card-header mb-3">Map</h3>
      <h3>lat: {{ lat }}</h3>   
      <h3>long: {{ long }}</h3>  
 
-    <gmap-map v-bind:center="center" v-bind:zoom="15" style="width: 1000px; height: 1000px">
-    <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true"></gmap-marker></gmap-map>
+    <gmap-map v-bind:center="center" v-bind:zoom="15" map-type-id="terrain" style="width: 500px; height: 300px">
+      <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true"></gmap-marker>
+    </gmap-map>
   </div>  
   </div>
 </template>
@@ -17,25 +18,17 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 export default {
   data() {
   return {
-    center: { lat: 48.160833, lng: -122.681111 },
-    // center: { lat: this.lat, lng: this.long },
+    // center: { lat: 48.160833, lng: -122.681111 },
+    center: { lat: +this.lat, lng: +this.long },
     markers: [
       {
-        position: { lat: 48.160833, lng: -122.681111 },
-        // position: { lat: +this.lat, lng: +this.long },        
+        // position: { lat: 48.160833, lng: -122.681111 },
+        position: { lat: +this.lat, lng: +this.long },        
       }
     ]
   };
 },
-computed: {
-    lat () {
-        return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1];
-      },
-    long () {
-      return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0];
-      },
-},
-props:['info']
+props:['lat','long']
 };
 </script>
 

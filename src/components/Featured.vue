@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+  <div class="form-group col-lg-4 col-md-12 col-sm-12">
     <div class="card mb-5">
       <h3 class="card-header mb-3">{{ info.itemLabel }}</h3>
           
@@ -37,6 +37,7 @@
         </li>
 
       </ul>
+
   
     </div>
     </div>
@@ -44,7 +45,6 @@
   </template>
 
 <script>
-
 export default {
   name: 'featured',
   data(){
@@ -69,7 +69,6 @@ export default {
   },
   coords () {
     return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ').join(', ');
-
     
   }
 }

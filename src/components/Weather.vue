@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group col-lg-3 col-md-12 col-sm-12">
+  <div v-if="result" class="form-group col-lg-4 col-md-12 col-sm-12">
     <div class="card mb-5">
       <h3 class="card-header mb-3">Current Weather</h3>
         <ul>
