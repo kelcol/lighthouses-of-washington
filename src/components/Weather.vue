@@ -20,7 +20,8 @@ export default {
   name: 'weather',
   data(){
     return {
-      result:{},
+      result: null,
+      // TODO: Add error messaging
       errors: [],
     }
   },
