@@ -1,40 +1,24 @@
 <template>
   <div>
-    <h2></h2>
-    
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
-      <a class="navbar-brand" href="#">Lighthouses of Washington</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" v-bind:to="{name: 'About'}">About</router-link>
-          </li>
-        </ul>
-      </div>
-    </nav>
 
-      <select v-model="lh" class="dropdown show">
-        <option disabled value="">Please select one</option>
-        <option v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">{{ lighthouse.itemLabel }}</option>
-      </select>
+    <select v-model="featuredLighthouse" class="dropdown show">
+      <option disabled value="">Please select one</option>
+      <option v-for="lighthouse in lighthouses" v-bind:key="lighthouse.itemLabel" :value="lighthouse">{{ lighthouse.itemLabel }}</option>
+    </select>
 
-      <div v-if="lh">
-        <lighthouse-details :info="lh" v-bind:key="lh.itemLabel"></lighthouse-details>
-        <lighthouse-weather :info="lh" v-bind:key="lh.coordinate_location"></lighthouse-weather>        
-        <lighthouse-map :lat="lhLat" :long="lhLong"></lighthouse-map>
-    </div>
-          
     <div>
+      <h3>{{ featuredLighthouse.itemLabel }}</h3>
+
+      <div v-if="featuredLighthouse">
+        <lighthouse-details :featured="featuredLighthouse" v-bind:key="featuredLighthouse.itemLabel"></lighthouse-details>
+        <lighthouse-weather :featured="featuredLighthouse" v-bind:key="featuredLighthouse.coordinate_location"></lighthouse-weather>
+        <lighthouse-map :lat="featuredLat" :long="featuredLong"></lighthouse-map>
+      </div>
+
+      <div>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -45,43 +29,31 @@ import LighthouseMap from "@/components/LighthouseMap";
 import LighthouseWeather from "@/components/LighthouseWeather";
 
 export default {
-  name: "featured-lighthouse",
-  data: function() { 
-    return {   
+  name: "featuredLighthouse",
+  data: function () {
+    return {
       lighthouses: lighthouses,
-      lh: '',
-      coords: ''      
-  }
+      'featuredLighthouse': '',
+    }
   },
   components: {
     'lighthouse-details': LighthouseDetails,
     'lighthouse-weather': LighthouseWeather,
     'lighthouse-map': LighthouseMap,
-   
   },
-  methods: {    
-    setActive: function(lighthouse, event) {
-      this.lh = lighthouse;
-      let activeItem = event.target;
-      activeItem.className += ' featured';
+  computed: {
+    featuredLat() {
+      return Number(this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[1]);
     },
+    featuredLong() {
+      return Number(this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[0]);
+    }
   },
-computed: {
-    lhLat () {
-      return Number(this.lh.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1]);
-      },
-    lhLong () {
-      return Number(this.lh.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0]);
-      }
-},
 }
-
 </script>
+
 <style scoped>
 
-.form-group {
-  margin: 5%;
-}
 
   
 </style>

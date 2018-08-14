@@ -1,48 +1,35 @@
 <template>
-  <div class="form-group col-lg-4 col-md-12 col-sm-12">
-    <div class="card mb-5">
-      <h3 class="card-header mb-3">{{ info.itemLabel }}</h3>
-          
-      <ul>
-        <img v-bind:src="info.image" />
-  
-        <li v-if="info.coordinate_location != null">
-          <strong>Coordinates: </strong>{{ coords }}</li>
-  
-        <li v-if="info.inception != null">
-          <strong>Inception: </strong>{{ info.inception.substring(0, 4) }}</li>
-  
-        <li v-if="info.ARLHS_Lighthouse_ID != null">
-          <strong>ARLHS ID:</strong> 
-            <a target="_blank" :href="ARLHS_href">
-                {{ info.ARLHS_Lighthouse_ID }}
-            </a>
-          </li>
-  
-        <li v-if="info.USCG_Lighthouse_ID != null">
-          <strong>USCG ID:</strong> {{ info.USCG_Lighthouse_ID }}</li>
-  
-        <li v-if="info.NRHP_reference_number != null">
-          <strong>NRHP Ref. No.:</strong> 
-            <a target="_blank" :href="NHRP_href">
-                {{info.NRHP_reference_number }}
-            </a>
-          </li>
-  
-        <li v-if="info.GeoNames_ID != null">
-          <strong>GeoNames ID:</strong> 
-          <a target="_blank" :href="GeoNames_href">
-            {{ info.GeoNames_ID }}
-          </a>
-        </li>
-
-      </ul>
-
-  
-    </div>
-    </div>
-  
-  </template>
+  <div v-if="featured">
+    <ul>
+      <!-- TODO: Remove placeholder image -->
+      <img src="../assets/imgs/lime-kiln.jpg" />
+      <li v-if="featured.coordinate_location != null">
+        <strong>Coordinates: </strong>{{ coords }}</li>
+      <li v-if="featured.inception != null">
+        <strong>Inception: </strong>{{ featured.inception.substring(0, 4) }}</li>
+      <li v-if="featured.ARLHS_Lighthouse_ID != null">
+        <strong>ARLHS ID:</strong>
+        <a target="_blank" :href="ARLHS_href">
+          {{ featured.ARLHS_Lighthouse_ID }}
+        </a>
+      </li>
+      <li v-if="featured.USCG_Lighthouse_ID != null">
+        <strong>USCG ID:</strong> {{ featured.USCG_Lighthouse_ID }}</li>
+      <li v-if="featured.NRHP_reference_number != null">
+        <strong>NRHP Ref. No.:</strong>
+        <a target="_blank" :href="NHRP_href">
+          {{featured.NRHP_reference_number }}
+        </a>
+      </li>
+      <li v-if="featured.GeoNames_ID != null">
+        <strong>GeoNames ID:</strong>
+        <a target="_blank" :href="GeoNames_href">
+          {{ featured.GeoNames_ID }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</template>
 
 <script>
 export default {
@@ -51,44 +38,31 @@ export default {
     return {}
   },
   props: {
-    info: Object,
+    featured: Object,
     required: true,
   },
   created() {},
   computed: {
     GeoNames_href() {
-      let id = this.info.GeoNames_ID;
+      let id = this.featured.GeoNames_ID;
       return `http://www.geonames.org/${id}`;
     },
     ARLHS_href() {
-      let id = this.info.ARLHS_Lighthouse_ID;
+      let id = this.featured.ARLHS_Lighthouse_ID;
       return `http://wlol.arlhs.com/lighthouse/${id}.html`;
     },
     NHRP_href() {
-      let id = this.info.NRHP_reference_number;
+      let id = this.featured.NRHP_reference_number;
       return `https://npgallery.nps.gov/SearchResults?search_param=all&allFields=${id}`;
     },
     coords() {
-      return this.info.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ').join(', ');
+      return this.featured.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ').join(', ');
 
     }
   }
 }
-
 </script>
 
 <style scoped>
-img {
-  width: auto !important;
-  height: auto !important;
-  max-width: 40%;
-}
-.form-group {
-  margin: 5%;
-}
-ul {
-  list-style-type: none;
-  text-align: left;
-}
 
 </style>

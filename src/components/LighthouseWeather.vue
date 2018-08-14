@@ -1,15 +1,13 @@
 <template>
-  <div v-if="result" class="form-group col-lg-4 col-md-12 col-sm-12">
-    <div class="card mb-5">
-      <h3 class="card-header mb-3">Current Weather</h3>
-        <ul>
+  <div id="weather">
+      <h3>Current Weather</h3>
+        <ul v-if="result">
           <img v-bind:src="`http://openweathermap.org/img/w/${result.weather[0].icon}.png`" v-bind:alt="result.weather[0].description">
           <li><strong>Description:</strong> {{ result.weather[0].description }}</li>
           <li><strong>Temperature:</strong> {{ result.main.temp }}&#176;F</li>
           <li><strong>Humidity:</strong> {{ result.main.humidity }}</li>
           <li><strong>Wind Speed:</strong> {{ result.wind.speed}} mph</li>  
-      </ul> 
-    </div>
+      </ul>    
     </div>
   </template>
 
@@ -20,26 +18,23 @@ export default {
   name: 'LighthouseWeather',
   data(){
     return {
-      result: null,
-      // TODO: Add error messaging
-      errors: [],
+      result: '',   
     }
   },
   props: {
-    info: {
+    featured: {
       type: Object,
       required: true
     }
   },
   created () {
   },
-
   computed: {
     lat () {
-      return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1].replace(/\..*/, "");
+      return this.featured.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1].replace(/\..*/, "");
       },
     long () {
-      return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0].replace(/\..*/, "");
+      return this.featured.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0].replace(/\..*/, "");
       },
     icon () {
       return `http://openweathermap.org/img/w/${result.weather[0].icon}.png`;
@@ -67,18 +62,9 @@ methods: {
   beforeMount () {
     this.getWeather();
   }
-
 }
-
 </script>
 
 <style scoped>
-.form-group {
-  margin: 5%;
-}
-ul {
-  list-style-type: none;
-  text-align: left;
-}
 
 </style>
