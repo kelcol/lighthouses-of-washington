@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  name: 'featured',
+  name: 'lighthouse-specs',
   data() {
     return {}
   },

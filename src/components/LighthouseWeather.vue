@@ -17,7 +17,7 @@
 import {API} from '@/common/api';
 
 export default {
-  name: 'weather',
+  name: 'LighthouseWeather',
   data(){
     return {
       result: null,

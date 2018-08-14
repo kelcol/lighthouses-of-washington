@@ -28,9 +28,9 @@
       </select>
 
       <div v-if="lh">
-        <featured :info="lh" v-bind:key="lh.itemLabel"></featured>
-        <weather :info="lh" v-bind:key="lh.coordinate_location"></weather>        
-        <gmap :lat="lhLat" :long="lhLong"></gmap>
+        <lighthouse-details :info="lh" v-bind:key="lh.itemLabel"></lighthouse-details>
+        <lighthouse-weather :info="lh" v-bind:key="lh.coordinate_location"></lighthouse-weather>        
+        <lighthouse-map :lat="lhLat" :long="lhLong"></lighthouse-map>
     </div>
           
     <div>
@@ -40,12 +40,12 @@
 
 <script>
 import lighthouses from "../lighthouses.js";
-import Featured from "@/components/Featured";
-import GMap from "@/components/GMap";
-import Weather from "@/components/Weather";
+import LighthouseDetails from "@/components/LighthouseDetails";
+import LighthouseMap from "@/components/LighthouseMap";
+import LighthouseWeather from "@/components/LighthouseWeather";
 
 export default {
-  name: "LighthouseSearch",
+  name: "featured-lighthouse",
   data: function() { 
     return {   
       lighthouses: lighthouses,
@@ -54,9 +54,9 @@ export default {
   }
   },
   components: {
-    featured: Featured,
-    weather: Weather,
-    gmap: GMap,
+    'lighthouse-details': LighthouseDetails,
+    'lighthouse-weather': LighthouseWeather,
+    'lighthouse-map': LighthouseMap,
    
   },
   methods: {    

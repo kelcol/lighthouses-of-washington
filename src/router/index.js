@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import LighthouseSearch from '@/components/LighthouseSearch'
 import About from '@/components/About'
-import Featured from '@/components/Featured'
+import Lighthouse from '@/components/Lighthouse'
 
 Vue.use(Router)
 
@@ -10,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'LighthouseSearch',
-      component: LighthouseSearch
+      name: 'lighthouse',
+      component: Lighthouse
     },
     {
       path: '/about',
