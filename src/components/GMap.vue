@@ -17,21 +17,50 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 
 export default {
   data() {
-  return {
-    // center: { lat: 48.160833, lng: -122.681111 },
-    center: { lat: +this.lat, lng: +this.long },
+  return {  
+    center: { 
+      lat: this.lat, 
+      lng: this.long },
     markers: [
-      {
-        // position: { lat: 48.160833, lng: -122.681111 },
-        position: { lat: +this.lat, lng: +this.long },        
+      {        
+        position: { 
+          lat: this.lat, 
+          lng: this.long },        
       }
     ]
   };
 },
-props:['lat','long']
+// watch: {
+//   lat: function (newLat) {
+//     this.lat = newLat; 
+//     console.log('Prop changed: ', newLat, ' | was: ', lat)
+//     },
+//   long: function (newLong) {
+//     this.long = newLong;
+//     console.log('Prop changed: ', newLong, ' | was: ', long);
+//     },
+
+
+//   lat: function(newLat) {
+//     console.log('Prop changed: ', newLat, ' | was: ', oldLat);
+//   },
+//     long: function(newLong, oldLong) {
+//     console.log('Prop changed: ', newLong, ' | was: ', oldLong);
+//     let long = newLong;
+//   }
+// },
+props: {
+  lat: {
+    type: Number,
+    required: true,
+    default: 48.160833
+  },
+  long: {
+    type: Number,
+    required: true,
+    default: -122.681111
+  }
+}
 };
 </script>
 
-<style>
-
-</style>

@@ -68,10 +68,10 @@ export default {
   },
 computed: {
     lhLat () {
-      return this.lh.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1];
+      return Number(this.lh.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1]);
       },
     lhLong () {
-      return this.lh.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0];
+      return Number(this.lh.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0]);
       }
 },
 }
@@ -83,8 +83,5 @@ computed: {
   margin: 5%;
 }
 
-.featured {
-      color: #42b983;
-    }
   
 </style>

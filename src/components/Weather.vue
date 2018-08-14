@@ -25,7 +25,12 @@ export default {
       errors: [],
     }
   },
-  props: ['info'],
+  props: {
+    info: {
+      type: Object,
+      required: true
+    }
+  },
   created () {
   },
 
@@ -39,8 +44,6 @@ export default {
     icon () {
       return `http://openweathermap.org/img/w/${result.weather[0].icon}.png`;
     }     
-   
-
 },
 methods: {
     getWeather: function () {
@@ -70,11 +73,6 @@ methods: {
 </script>
 
 <style scoped>
-img {
-  width: auto !important;
-  height: auto !important;
-  max-width: 40%;
-}
 .form-group {
   margin: 5%;
 }
@@ -82,7 +80,5 @@ ul {
   list-style-type: none;
   text-align: left;
 }
-.featured {
-  color: blue;
-}
+
 </style>

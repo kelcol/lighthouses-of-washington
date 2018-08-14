@@ -47,31 +47,32 @@
 <script>
 export default {
   name: 'featured',
-  data(){
-    return {
-    }
+  data() {
+    return {}
   },
-  props: ['info'],
-  created () {
+  props: {
+    info: Object,
+    required: true,
   },
+  created() {},
   computed: {
-    GeoNames_href () {
+    GeoNames_href() {
       let id = this.info.GeoNames_ID;
       return `http://www.geonames.org/${id}`;
     },
-    ARLHS_href () {
+    ARLHS_href() {
       let id = this.info.ARLHS_Lighthouse_ID;
       return `http://wlol.arlhs.com/lighthouse/${id}.html`;
     },
-    NHRP_href () {
+    NHRP_href() {
       let id = this.info.NRHP_reference_number;
       return `https://npgallery.nps.gov/SearchResults?search_param=all&allFields=${id}`;
-  },
-  coords () {
-    return this.info.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ').join(', ');
-    
+    },
+    coords() {
+      return this.info.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ').join(', ');
+
+    }
   }
-}
 }
 
 </script>
@@ -89,7 +90,5 @@ ul {
   list-style-type: none;
   text-align: left;
 }
-.featured {
-  color: blue;
-}
+
 </style>
