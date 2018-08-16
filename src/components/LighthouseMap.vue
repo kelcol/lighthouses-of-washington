@@ -10,34 +10,40 @@
 <script>
 import * as VueGoogleMaps from 'vue2-google-maps'
 
-export default {  
+export default {
   data() {
-  return {
-    result: null,
-    center: { 
-      lat: this.lat, 
-      lng: this.long },
-    markers: [
-      {        
-        position: { 
-          lat: this.lat, 
-          lng: this.long },        
-      }
-    ]
-  };
-},
-props: {
-  lat: {
-    type: Number,
-    required: true,
-    default: 48.160833
+    return {
+      result: null,
+    };
   },
-  long: {
-    type: Number,
-    required: true,
-    default: -122.681111
+  computed: {
+    center: function () {
+      return {
+        lat: this.lat,
+        lng: this.long
+      }
+    },
+    markers: function () {
+      return [{
+        position: {
+          lat: this.lat,
+          lng: this.long
+        },
+      }, ]
+    }
+  },
+  props: {
+    lat: {
+      type: Number,
+      required: true,
+      default: 48.160833
+    },
+    long: {
+      type: Number,
+      required: true,
+      default: -122.681111
+    }
   }
-}
 };
 </script>
 
