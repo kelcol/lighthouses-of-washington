@@ -4,6 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import * as VueGoogleMaps from 'vue2-google-maps'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+
+ 
+Vue.use(Vuetify)
+
  
 Vue.use(VueGoogleMaps, {
   load: {
@@ -39,3 +45,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
