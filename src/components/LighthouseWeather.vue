@@ -57,7 +57,7 @@ methods: {
       });
     }
   },
-  beforeMounted () {
+  mounted () {
     this.getWeather();
   }
 }
