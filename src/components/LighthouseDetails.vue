@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: 'lighthouse-specs',
+  name: 'lighthouse-details',
   data() {
     return {}
   },
