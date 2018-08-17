@@ -1,5 +1,5 @@
 <template>
-  <div id="weather">
+  <div id="weather" v-if="featured">
       <h3>Current Weather</h3>
         <ul v-if="result">
           <img v-bind:src="`http://openweathermap.org/img/w/${result.weather[0].icon}.png`" v-bind:alt="result.weather[0].description">
@@ -21,13 +21,11 @@ export default {
       result: '',   
     }
   },
-  props: {
+props: {
     featured: {
       type: Object,
       required: true
     }
-  },
-  created () {
   },
   computed: {
     lat () {
@@ -59,7 +57,7 @@ methods: {
       });
     }
   },
-  beforeMount () {
+  beforeMounted () {
     this.getWeather();
   }
 }
