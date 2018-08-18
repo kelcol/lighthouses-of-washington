@@ -1,10 +1,13 @@
 <template>
+<v-container grid-list-xs>
+  
+
   <div v-if="lat,long">   
-      <p>{{ lat }}, {{ long }}</p>
-      <gmap-map v-bind:center="center" v-bind:zoom="15" map-type-id="terrain" style="width: 500px; height: 300px">
+      <gmap-map v-bind:center="center" v-bind:zoom="15" map-type-id="terrain" style="width: 100%; height: 800px">
         <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true"></gmap-marker>
       </gmap-map>
     </div>
+    </v-container>
 </template>
 
 <script>
@@ -46,4 +49,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+gmap-map {
+  padding: 0 auto;
+}
+
+</style>
+
+
+
 
