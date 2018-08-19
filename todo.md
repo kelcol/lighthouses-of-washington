@@ -11,19 +11,19 @@
 
 
 ## Javascripty things
-- [ ] Standardize coordinates to format used by OpenWeather API (strip all after decimal point)
-- [ ] Make lighthouse list functional
-- [ ] Show only to"Featured/Selected" lighthouse
-- [ ] Add widget showing weather data for selected loc
+- [X] Standardize coordinates to format used by OpenWeather API (strip all after decimal point)
+- [X] Make lighthouse list functional
+- [X] Show only to"Featured/Selected" lighthouse
+- [X] Add widget showing weather data for selected loc
 - [ ] Display nighttime view if image is available and it's after dark at user loc
 - [ ] Make coords and date more readable
-- [ ] Hyperlink identifiers to authority's resource page
+- [X] Hyperlink identifiers to authority's resource page
 
 ## SPARQL QUERY
 ```
 #List of all the lighthouses in Washington State
 #defaultView:Table
-SELECT DISTINCT ?itemLabel?image ?nighttime_view ?coordinate_location ?located_in_protected_area ?located_in_protected_areaLabel ?inception ?service_entry ?service_retirement ?height ?lighthouse_range ?focal_height ?manufacturer ?manufacturerLabel ?architect ?architectLabel ?native_label ?heritage_designation ?heritage_designationLabel ?NRHP_reference_number ?GeoNames_ID ?ARLHS_Lighthouse_ID ?USCG_Lighthouse_ID ?MarineTraffic_Lighthouse_ID ?GNIS_ID WHERE {
+SELECT DISTINCT ?itemLabel ?image ?nighttime_view ?coordinate_location ?inception ?service_entry ?service_retirement ?height ?lighthouse_range ?focal_height ?manufacturer ?manufacturerLabel ?architect ?architectLabel ?native_label ?heritage_designation ?heritage_designationLabel ?NRHP_reference_number ?GeoNames_ID ?ARLHS_Lighthouse_ID ?USCG_Lighthouse_ID ?MarineTraffic_Lighthouse_ID ?GNIS_ID ?significant_event ?significant_eventLabel ?light_characteristic_of_lighthouse ?located_in_the_administrative_territorial_entity ?located_in_the_administrative_territorial_entityLabel ?Online_List_of_Lights_id ?located_in_protected_area ?located_in_protected_areaLabel WHERE {
   ?item (wdt:P31/wdt:P279*) wd:Q39715.
   ?item wdt:P131 wd:Q1223.
   ?item wdt:P625 ?coord.
@@ -31,7 +31,6 @@ SELECT DISTINCT ?itemLabel?image ?nighttime_view ?coordinate_location ?located_i
   OPTIONAL { ?item wdt:P18 ?image. }
   OPTIONAL { ?item wdt:P3451 ?nighttime_view. }
   OPTIONAL { ?item wdt:P625 ?coordinate_location. }
-  OPTIONAL { ?item wdt:P3018 ?located_in_protected_area. }
   OPTIONAL { ?item wdt:P571 ?inception. }
   OPTIONAL { ?item wdt:P729 ?service_entry. }
   OPTIONAL { ?item wdt:P730 ?service_retirement. }
@@ -40,6 +39,16 @@ SELECT DISTINCT ?itemLabel?image ?nighttime_view ?coordinate_location ?located_i
   OPTIONAL { ?item wdt:P2980 ?ARLHS_Lighthouse_ID. }
   OPTIONAL { ?item wdt:P3723 ?USCG_Lighthouse_ID. }
   OPTIONAL { ?item wdt:P590 ?GNIS_ID. }
+  OPTIONAL { ?item wdt:P793 ?significant_event. }
+  OPTIONAL { ?item wdt:P2048 ?height. }
+  OPTIONAL { ?item wdt:P1030 ?light_characteristic_of_lighthouse. }
+  OPTIONAL { ?item wdt:P2923 ?focal_height. }
+  OPTIONAL { ?item wdt:P2929 ?lighthouse_range. }
+  OPTIONAL { ?item wdt:P3601 ?MarineTraffic_Lighthouse_ID. }
+  OPTIONAL { ?item wdt:P1435 ?heritage_designation. }
+  OPTIONAL { ?item wdt:P3223 ?Online_List_of_Lights_id. }
+  OPTIONAL { ?item wdt:P84 ?architect. }
+  OPTIONAL { ?item wdt:P3018 ?located_in_protected_area. }
 }
 ORDER BY ?itemLabel
 ```
