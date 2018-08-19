@@ -1,24 +1,15 @@
 <template>
  
 <v-container grid-list-xs fluid>
-  
-
 
     <div class="text-xs-center">
-
-
-    
-
 
           <v-flex xs12 sm6 d-flex>
             <v-select v-model="featuredLighthouse" :hint="`${select.itemLabel}`" :items="lighthouses" label="Select" item-value="`${featuredLighthouse}`"
               item-text="itemLabel" solo return-object></v-select>
           </v-flex>
 
-
-
-
-
+        <h1 class="headline">{{featuredLighthouse.itemLabel}}</h1>
 
 
         <v-tabs grow centered color="brown lighten-3" dark icons-and-text>

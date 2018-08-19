@@ -6,6 +6,11 @@
       <gmap-map v-bind:center="center" v-bind:zoom="15" map-type-id="terrain" style="width: 100%; height: 800px">
         <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true"></gmap-marker>
       </gmap-map>
+      <div class="text-xs-center">
+        <v-btn color="success">
+          <a target="_blank" :href="directionsURL">Get Directions</a></v-btn>      
+        
+      </div>      
     </div>
     </v-container>
 </template>
@@ -33,6 +38,9 @@ export default {
           lng: this.long
         },
       }, ]
+    },
+    directionsURL: function () {
+      return `https://www.google.com/maps/dir//${this.lat},${this.long}`
     }
   },
   props: {

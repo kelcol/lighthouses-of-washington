@@ -1,4 +1,5 @@
 <template>
+
   <div v-if="featured">
     <ul>
       <!-- TODO: Remove placeholder image -->
