@@ -1,68 +1,50 @@
 <template>
- 
-<v-container grid-list-xs fluid>
-
-    <div class="text-xs-center">
-
-          <v-flex xs12 sm6 d-flex>
+  <v-content>
+    <v-container fluid>
+      <v-container>
+        <v-layout wrap align-center>
+          <v-flex xs12 sm12 d-flex>
             <v-select v-model="featuredLighthouse" :hint="`${select.itemLabel}`" :items="lighthouses" label="Select" item-value="`${featuredLighthouse}`"
               item-text="itemLabel" solo return-object></v-select>
           </v-flex>
-
-        <h1 class="headline">{{featuredLighthouse.itemLabel}}</h1>
-
-
-        <v-tabs grow centered color="brown lighten-3" dark icons-and-text>
-          <v-tabs-slider color="green"></v-tabs-slider>
-          
-          <!--TODO: Set this up to use router hrefs instead-->
-          <v-tab>
-            Information
-            <v-icon>star</v-icon>
-          </v-tab>
-          <v-tab>
-            Weather
-            <v-icon>cloud</v-icon>
-          </v-tab>
-          <v-tab>
-            Map
-            <v-icon>map</v-icon>
-          </v-tab>
-
-          <!-- Wikidata Content -->
-          <v-tab-item>
-            <v-card flat>
-              <v-card-text> 
-                <lighthouse-details :featured="featuredLighthouse" v-bind:key="featuredLighthouse.itemLabel"></lighthouse-details>
-              </v-card-text>
-              </v-card>
-          </v-tab-item>
-
-          <!-- Weather Content -->
-          <v-tab-item>
-            <v-card flat>
-              <v-card-text> 
-                <lighthouse-weather :featured="featuredLighthouse" v-bind:key="featuredLighthouse.coordinate_location"></lighthouse-weather>
-              </v-card-text>
-              </v-card>
-          </v-tab-item>
-
-          <!-- Map Content -->
-          <v-tab-item>
-            <v-card flat>
-              <v-card-text grow> 
-                <lighthouse-map :lat="featuredLat" :long="featuredLong"></lighthouse-map>
-              </v-card-text>
+        </v-layout>
+      </v-container>
+      <v-layout>
+        <v-flex xs12 sm6 offset-sm3>
+          <v-card v-if="featuredLighthouse">
+            <v-card-media src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" height="400px">
+              <lighthouse-map :lat="featuredLat" :long="featuredLong"></lighthouse-map>
+            </v-card-media>
+            <v-card-title primary-title>
+              <div>
+                <h3 class="headline mb-0">{{ featuredLighthouse.itemLabel }}</h3>
+              </div>
+            </v-card-title>
+            <v-card-text>
+              <v-expansion-panel>
+                <v-expansion-panel-content>
+                  <div slot="header">About the lighthouse</div>
+                  <v-card>
+                    <v-card-text>
+                      <lighthouse-details :featured="featuredLighthouse" v-bind:key="featuredLighthouse.itemLabel"></lighthouse-details>
+                    </v-card-text>
+                  </v-card>
+                </v-expansion-panel-content>
+                <v-expansion-panel-content>
+                  <div slot="header">Current Weather</div>
+                  <v-card>
+                    <v-card-text>
+                      <lighthouse-weather :featured="featuredLighthouse" v-bind:key="featuredLighthouse.coordinate_location"></lighthouse-weather>
+                    </v-card-text>
+                  </v-card>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-card-text>
           </v-card>
-          </v-tab-item>
-
-        </v-tabs>
-
-
-    </div>
-
-</v-container>
-
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-content>
 </template>
 
 <script>
@@ -103,6 +85,9 @@ export default {
       return Number(this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[0]);
     }
   },
+  methods: {
+
+  }
 }
 </script>
 

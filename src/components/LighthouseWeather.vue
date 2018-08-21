@@ -1,15 +1,27 @@
 <template>
   <div id="weather" v-if="featured">
-      <h3>Current Weather</h3>
-        <ul v-if="result">
-          <img v-bind:src="`http://openweathermap.org/img/w/${result.weather[0].icon}.png`" v-bind:alt="result.weather[0].description">
-          <li><strong>Description:</strong> {{ result.weather[0].description }}</li>
-          <li><strong>Temperature:</strong> {{ result.main.temp }}&#176;F</li>
-          <li><strong>Humidity:</strong> {{ result.main.humidity }}</li>
-          <li><strong>Wind Speed:</strong> {{ result.wind.speed}} mph</li>  
-      </ul>    
-    </div>
-  </template>
+    <v-layout row>
+      <v-flex>
+        <v-card>
+          <v-spacer></v-spacer>
+          <v-list-tile-content>
+            <ul v-if="result">
+              <img v-bind:src="`http://openweathermap.org/img/w/${result.weather[0].icon}.png`" v-bind:alt="result.weather[0].description">
+              <li>
+                <strong>Description:</strong> {{ result.weather[0].description }}</li>
+              <li>
+                <strong>Temperature:</strong> {{ result.main.temp }}&#176;F</li>
+              <li>
+                <strong>Humidity:</strong> {{ result.main.humidity }}</li>
+              <li>
+                <strong>Wind Speed:</strong> {{ result.wind.speed}} mph</li>
+            </ul>
+          </v-list-tile-content>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </div>
+</template>
 
 <script>
 import {API} from '@/common/api';

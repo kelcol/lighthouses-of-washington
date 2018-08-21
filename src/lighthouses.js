@@ -22,25 +22,9 @@ export default
     "USCG_Lighthouse_ID": "6-16915",
     "MarineTraffic_Lighthouse_ID": "1000020355",
     "GNIS_ID": "1514896",
-    "light_characteristic_of_lighthouse": "Fl W 5s",
+    "light_characteristic_of_lighthouse": ["Fl W 5s","Iso W 6s"],
     "Online_List_of_Lights_id": "17865"
-}, {
-    "itemLabel": "Alki Point Light",
-    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Alkilighthouse.jpg",
-    "coordinate_location": "Point(-122.42055556 47.57638889)",
-    "inception": "1887-01-01T00:00:00Z",
-    "service_entry": "1913-01-01T00:00:00Z",
-    "height": "11",
-    "lighthouse_range": "16",
-    "focal_height": "12",
-    "GeoNames_ID": "5785514",
-    "ARLHS_Lighthouse_ID": "USA005",
-    "USCG_Lighthouse_ID": "6-16915",
-    "MarineTraffic_Lighthouse_ID": "1000020355",
-    "GNIS_ID": "1514896",
-    "light_characteristic_of_lighthouse": "Iso W 6s",
-    "Online_List_of_Lights_id": "17865"
-}, {
+},{
     "itemLabel": "Burrows Island Light",
     "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Burrows%20Island%20Light.jpg",
     "coordinate_location": "Point(-122.713547 48.477908)",
@@ -253,7 +237,7 @@ export default
     "coordinate_location": "Point(-122.9715 48.789)",
     "service_entry": "1908-01-01T00:00:00Z",
     "height": "8",
-    "lighthouse_range": "6",
+    "lighthouse_range": ["6","9"],
     "focal_height": "12",
     "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
     "heritage_designationLabel": "place listed on the National Register of Historic Places",
@@ -263,23 +247,7 @@ export default
     "MarineTraffic_Lighthouse_ID": "1000020344",
     "GNIS_ID": "1533195",
     "light_characteristic_of_lighthouse": "FI(1+2) WR 15s"
-}, {
-    "itemLabel": "Patos Island Light",
-    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Patos%20island%20light.JPG",
-    "coordinate_location": "Point(-122.9715 48.789)",
-    "service_entry": "1908-01-01T00:00:00Z",
-    "height": "8",
-    "lighthouse_range": "9",
-    "focal_height": "12",
-    "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
-    "heritage_designationLabel": "place listed on the National Register of Historic Places",
-    "NRHP_reference_number": "77001355",
-    "ARLHS_Lighthouse_ID": "USA584",
-    "USCG_Lighthouse_ID": "6-19825",
-    "MarineTraffic_Lighthouse_ID": "1000020344",
-    "GNIS_ID": "1533195",
-    "light_characteristic_of_lighthouse": "FI(1+2) WR 15s"
-}, {
+},{
     "itemLabel": "Point Wilson Light",
     "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Pt%20Townsend%2C%20WA%20lighthouse%2001.jpg",
     "coordinate_location": "Point(-122.753889 48.144167)",
