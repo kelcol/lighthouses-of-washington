@@ -7,7 +7,9 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 
- 
+// Helpers
+import colors from 'vuetify/es5/util/colors'
+
 Vue.use(Vuetify)
 
  

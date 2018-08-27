@@ -5,8 +5,9 @@
         <v-card>        
             <v-list-tile-content>
               <ul>
-                <li v-if="featured.coordinate_location != null">
-                  <strong>Coordinates: </strong>{{ coords }}</li>
+                  <li>
+                  <strong>Name: </strong>{{ featured.itemLabel }}
+                </li>
                 <li v-if="featured.inception != null">
                   <strong>Inception: </strong>{{ featured.inception.substring(0, 4) }}</li>
                 <li v-if="featured.ARLHS_Lighthouse_ID != null">
@@ -30,7 +31,7 @@
                   </a>
                 </li>
               </ul>
-            </v-list-tile-content>
+            </v-list-tile-content>              
           </v-card>
         </v-flex>
       </v-layout>

@@ -3,14 +3,7 @@
       <gmap-map id="lhmap" v-bind:center="center" v-bind:zoom="10" map-type-id="terrain">
         <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true"></gmap-marker>
       </gmap-map>
-      <div class="text-xs-center">
-        <v-card-actions>
-        <v-btn flat color="orange">
-          <a target="_blank" :href="directionsURL">
-            Get Directions
-          </a>
-        </v-btn>   
-      </v-card-actions>                           
+      <div class="text-xs-center">                                
       </div>      
     </div>
 </template>
@@ -39,9 +32,6 @@ export default {
         },
       }, ]
     },
-    directionsURL: function () {
-      return `https://www.google.com/maps/dir//${this.lat},${this.long}`
-    }
   },
   props: {
     lat: {
