@@ -6,7 +6,7 @@
           <v-spacer></v-spacer>
           <v-list-tile-content>
             <ul v-if="result">
-              <img v-bind:src="`http://openweathermap.org/img/w/${result.weather[0].icon}.png`" v-bind:alt="result.weather[0].description">
+              <img v-bind:src="`https://openweathermap.org/img/w/${result.weather[0].icon}.png`" v-bind:alt="result.weather[0].description">
               <li>
                 <strong>Description:</strong> {{ result.weather[0].description }}</li>
               <li>
