@@ -23,8 +23,12 @@
           <v-layout>
             <v-flex xs12 sm8 offset-sm2>
               <v-card>
-                <v-card-media position="relative" src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" height="400px">
-                  <lighthouse-map :lat="featuredLat" :long="featuredLong"></lighthouse-map>                  
+                
+                <!--TODO: Move map to bottom of card and put lighthouse image(s) on top-->                
+                <!-- <v-card-media :src="featuredLighthouse.image" position="relative" height="400px"> -->
+                
+                <v-card-media position="relative" height="400px">
+                  <lighthouse-map :lat="featuredLat" :long="featuredLong"></lighthouse-map>
                 </v-card-media>
 
                 <v-card-title primary-title>
@@ -34,27 +38,64 @@
                 </v-card-title>
 
                 <v-card-text>
-                  <a target="_blank" :href="getDirectionsURL">Get Directions</a>
-                  <v-expansion-panel>
-                    <v-expansion-panel-content>
-                      <div slot="header">About the lighthouse</div>
-                      <v-card>
-                        <v-card-text>
-                          <lighthouse-details :featured="featuredLighthouse" v-bind:key="featuredLighthouse.itemLabel"></lighthouse-details>
-                        </v-card-text>
-                      </v-card>
-                    </v-expansion-panel-content>
-                    <v-expansion-panel-content>
-                      <div slot="header">Current Weather</div>
-                      <v-card>
-                        <v-card-text>
-                          <lighthouse-weather :featured="featuredLighthouse" v-bind:key="featuredLighthouse.coordinate_location"></lighthouse-weather>
-                        </v-card-text>
-                      </v-card>
-                    </v-expansion-panel-content>
-                  </v-expansion-panel>
-                  <v-btn absolute dark fab bottom right color="blue ligthen-4"> 
-                      <v-icon alt="Get Directions">map</v-icon>
+                  <!-- <a target="_blank" :href="getDirectionsURL">Get Directions</a> -->
+                  <p>
+                    <!-- same inception and no given service entry date-->
+                    <span v-if="featuredLighthouse.inception != null && featuredLighthouse.service_entry == null">{{
+                      featuredLighthouse.itemLabel }} was built in {{ featuredLighthouse.inception.substring(0, 4) }}.</span>
+
+                    <!-- same inception and service entry date-->
+                    <span v-if="featuredLighthouse.inception != null && featuredLighthouse.service_entry != null && featuredLighthouse.service_entry == featuredLighthouse.inception">{{
+                      featuredLighthouse.itemLabel }} was constructed and first lit in {{
+                      featuredLighthouse.inception.substring(0, 4) }}.</span>
+
+                    <!-- same inception and different service entry date-->
+                    <span v-if="featuredLighthouse.inception != null && featuredLighthouse.service_entry != null && featuredLighthouse.service_entry != featuredLighthouse.inception">{{
+                      featuredLighthouse.itemLabel }} was constructed in {{ featuredLighthouse.inception.substring(0,
+                      4) }} and first lit in {{ featuredLighthouse.service_entry.substring(0, 4) }}.</span>
+
+                    <!-- physical and other characteristics -->
+                    
+                    <!--Known height-->
+                    <span v-if="featuredLighthouse.height != null">It has a height of {{ featuredLighthouse.height }} feet above sea level,</span>
+                    <!--Unnown height-->
+                    <span v-if="featuredLighthouse.height == null">It has</span>
+                    
+                    <span v-if="featuredLighthouse.focal_height != null"> a focal height of {{ featuredLighthouse.focal_height }} meters, </span><span v-if="featuredLighthouse.light_characteristic_of_lighthouse != null"><span v-if="featuredLighthouse.lighthouse_range != null"> a range of {{featuredLighthouse.lighthouse_range }} nautical miles, </span>and a light characteristic of {{ featuredLighthouse.light_characteristic_of_lighthouse }}.</span><span v-if="featuredLighthouse.service_retirement != null"> This lighthouse was retired in {{ featuredLighthouse.service_retirement.substring(0, 4) }}.</span>
+                  </p>
+
+                  <v-container>
+                    <v-layout row wrap>
+                      <v-flex xs12 lg5 mb-3>
+                        <v-expansion-panel popout>
+                          <v-expansion-panel-content>
+                            <div slot="header" color="pink">Current Weather</div>
+                            <v-card color="blue-grey lighten-5">
+                              <v-card-text>
+                                <lighthouse-weather :featured="featuredLighthouse" v-bind:key="featuredLighthouse.coordinate_location"></lighthouse-weather>
+                              </v-card-text>
+                            </v-card>
+                          </v-expansion-panel-content>
+                        </v-expansion-panel>
+                      </v-flex>
+
+                      <v-flex xs12 lg5 offset-lg2>
+                        <v-expansion-panel inset>
+                          <v-expansion-panel-content>
+                            <div slot="header">Lighthouse Identifiers</div>
+                            <v-card color="blue-grey lighten-5">
+                              <v-card-text>
+                                <lighthouse-details :featured="featuredLighthouse" v-bind:key="featuredLighthouse.itemLabel"></lighthouse-details>
+                              </v-card-text>
+                            </v-card>
+                          </v-expansion-panel-content>
+                        </v-expansion-panel>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+
+                  <v-btn absolute dark fab left bottom color="blue ligthen-4">
+                    <v-icon alt="Get Directions">map</v-icon>
                   </v-btn>
                 </v-card-text>
 

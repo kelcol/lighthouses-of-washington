@@ -2,7 +2,7 @@
   <div id="weather" v-if="featured">
     <v-layout row>
       <v-flex>
-        <v-card>
+        <v-card color="blue-grey lighten-5">
           <v-spacer></v-spacer>
           <v-list-tile-content>
             <ul v-if="result">
@@ -61,11 +61,9 @@ methods: {
       })
       .then(response => {
         this.result = response.data
-        console.log(response);
       })
       .catch(error => {
         this.errors.push(error.message)
-        console.log(error);
       });
     }
   },

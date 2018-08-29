@@ -1,30 +1,11 @@
 <template>
-  <div id="weather" v-if="featured">
-    <v-layout>
+  <div id="details" v-if="featured">
+<v-layout row>
       <v-flex>
-        <v-card row>
-          <v-list>
-            <v-list-tile-content>
-              <ul>                 
-                <li v-if="featured.inception != null">
-                  <strong>Inception: </strong>{{ featured.inception.substring(0, 4) }}</li>                
-                
-                <li v-if="featured.service_entry != null">
-                  <strong>Service Entry: </strong>{{ featured.service_entry.substring(0, 4) }}</li>                
-                
-                <li v-if="featured.service_retirement != null">
-                  <strong>Service Retirement: </strong>{{ featured.service_retirement.substring(0, 4) }}</li>  
-
-                              
-                <li v-if="featured.height != null">
-                  <strong>Height: </strong>{{ featured.height }}</li>      
-                
-                <li v-if="featured.focal_height != null">
-                  <strong>Focal Height: </strong>{{ featured.focal_height }}</li>
-
-                <li v-if="featured.light_characteristic_of_lighthouse != null">
-                  <strong>Light Characteristic: </strong>{{ featured.light_characteristic_of_lighthouse }}</li>
-         
+        <v-card color="blue-grey lighten-5">
+          <v-spacer></v-spacer>
+          <v-list-tile-content>
+              <ul>
                 <v-tooltip bottom>
                 <span slot="activator">
                 <li v-if="featured.ARLHS_Lighthouse_ID != null">
@@ -35,7 +16,6 @@
                 </li></span>
                 <span>Amateur Radio Lighthouse Identifier</span>
                 </v-tooltip>
-
                 <v-tooltip bottom>
                 <span slot="activator">
                 <li v-if="featured.GeoNames_ID != null">
@@ -46,7 +26,6 @@
                 </li></span>
                 <span>GeoNames Identifier</span>
                 </v-tooltip>
-
                 <v-tooltip bottom>
                 <span slot="activator">
                 <li v-if="featured.GNIS_ID != null">
@@ -56,8 +35,7 @@
                   </a>
                 </li></span>
                 <span>USGS Identifier</span>
-                </v-tooltip>
-                
+                </v-tooltip>                
                 <v-tooltip bottom>
                 <span slot="activator">
                 <li v-if="featured.MarineTraffic_Lighthouse_ID != null">
@@ -67,8 +45,7 @@
                   </a>
                 </li></span>
                 <span>Marine Traffic Lighthouse Identifier</span>
-                </v-tooltip>
-                
+                </v-tooltip>                
                 <v-tooltip bottom>
                 <span slot="activator">
                 <li v-if="featured.NRHP_reference_number != null">
@@ -79,7 +56,6 @@
                 </li></span>
                 <span>National Registry of Historic Places Reference No.</span>
                 </v-tooltip>
-
                                 
                  <v-tooltip bottom>
                 <span slot="activator">
@@ -87,9 +63,7 @@
                   <strong>Online List of Lights ID:</strong> {{ featured.Online_List_of_Lights_id }}
                   </li></span>
                 <span>Online List of Lights ID</span>
-                </v-tooltip>
-
-                                
+                </v-tooltip>                                
                  <v-tooltip bottom>
                 <span slot="activator">
                 <li v-if="featured.USCG_Lighthouse_ID != null">
@@ -97,19 +71,8 @@
                   </li></span>
                 <span>United States Coast Guard Identifier</span>
                 </v-tooltip>
-
-
-
               </ul>
             </v-list-tile-content>        
-            </v-list>
-        
-          </v-card>
-          <v-card>
-                          <div v-if="featured.image != null">
-              <img v-bind:src="featured.image" />
-              </div>
-            
           </v-card>
         </v-flex>
       </v-layout>
@@ -123,7 +86,7 @@
 export default {
   name: 'lighthouse-details',
   data() {
-    return {      
+    return {     
     }
   },
   props: {
