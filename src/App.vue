@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" color="light-blue lighten-5">
+  <v-app id="app">
     
     <v-navigation-drawer v-model="drawer" fixed app>
       <v-list dense>
@@ -37,7 +37,7 @@
       
     </v-navigation-drawer>
 
-    <v-toolbar color="orange lighten-2" dark fixed app>
+    <v-toolbar color="blue lighten-2" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Lighthouse Crawler</v-toolbar-title>
     </v-toolbar>
@@ -48,7 +48,7 @@
     </v-container>
   </v-content>
 <div class="text-center-xs">
-    <v-footer color="orange lighten-2" app>
+    <v-footer color="blue lighten-2" app>
       <span class="white--text">Kelly Colht &copy; 2018</span>
     </v-footer>
 </div>
@@ -65,3 +65,11 @@
     }
   }
 </script>
+
+<style>
+  #app {
+   background-color: #e6f8d793;
+}
+
+
+</style>

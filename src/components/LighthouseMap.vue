@@ -4,8 +4,10 @@
         <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true"></gmap-marker>
       </gmap-map>
       <div class="text-xs-center">                                
-      </div>      
+      </div>
+  
     </div>
+    
 </template>
 
 <script>
@@ -43,6 +45,10 @@ export default {
       type: Number,
       required: true,
       default: -122.681111
+    }
+  }, methods: {
+    test: function() {
+      console.log(123)
     }
   }
 };
