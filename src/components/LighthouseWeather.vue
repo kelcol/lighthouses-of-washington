@@ -52,7 +52,6 @@ props: {
 },
 methods: {
     getWeather: function () {
-      console.log('Getting weather...');
       API.get('weather', {
         params: {
           lat: this.lat,

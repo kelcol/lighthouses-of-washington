@@ -28,10 +28,13 @@
                 <!-- <v-card-media :src="featuredLighthouse.image" position="relative" height="400px"> -->
                 
                 <v-card-media position="relative" height="400px">
-                  <lighthouse-map :lat="featuredLat" :long="featuredLong"></lighthouse-map>
+                  <lighthouse-map :lat="featuredLat" :long="featuredLong"></lighthouse-map>                  
                 </v-card-media>
+                <v-btn absolute dark fab left bottom color="blue ligthen-4" target="_blank" alt="Get directions, links to external site" v-bind:href="getDirectionsURL">                    
+                    <v-icon alt="Get Directions">map</v-icon>
+                  </v-btn>
 
-                <v-card-title primary-title>
+                <v-card-title primary-title>                  
                   <div>
                     <h3 class="headline mb-0">{{ featuredLighthouse.itemLabel }}</h3>
                   </div>
@@ -57,11 +60,9 @@
                     <!-- physical and other characteristics -->
                     
                     <!--Known height-->
-                    <span v-if="featuredLighthouse.height != null">It has a height of {{ featuredLighthouse.height }} feet above sea level,</span>
+                    <span v-if="featuredLighthouse.height != null">It has a height of {{ featuredLighthouse.height }} meters above sea level,</span>
                     <!--Unnown height-->
-                    <span v-if="featuredLighthouse.height == null">It has</span>
-                    
-                    <span v-if="featuredLighthouse.focal_height != null"> a focal height of {{ featuredLighthouse.focal_height }} meters, </span><span v-if="featuredLighthouse.light_characteristic_of_lighthouse != null"><span v-if="featuredLighthouse.lighthouse_range != null"> a range of {{featuredLighthouse.lighthouse_range }} nautical miles, </span>and a light characteristic of {{ featuredLighthouse.light_characteristic_of_lighthouse }}.</span><span v-if="featuredLighthouse.service_retirement != null"> This lighthouse was retired in {{ featuredLighthouse.service_retirement.substring(0, 4) }}.</span>
+                    <span v-if="featuredLighthouse.height == null && featuredLighthouse.focal_height|featuredLighthouse.height|featuredLighthouse.lighthouse_range|featuredLighthouse.light_characteristic_of_lighthouse != null">It has </span><span v-if="featuredLighthouse.focal_height != null"> a focal height of {{ featuredLighthouse.focal_height }} meters, </span><span v-if="featuredLighthouse.light_characteristic_of_lighthouse != null"><span v-if="featuredLighthouse.lighthouse_range != null"> a range of {{featuredLighthouse.lighthouse_range }} nautical miles, </span>and a light characteristic of {{ featuredLighthouse.light_characteristic_of_lighthouse }}.  </span><span v-if="featuredLighthouse.service_retirement != null"> This lighthouse was retired in {{ featuredLighthouse.service_retirement.substring(0, 4) }}. </span><span v-if="featuredLighthouse.NRHP_reference_number != null">{{ featuredLighthouse.itemLabel }} is listed on the National Register of Historic Places.</span>
                   </p>
 
                   <v-container>
@@ -93,10 +94,6 @@
                       </v-flex>
                     </v-layout>
                   </v-container>
-
-                  <v-btn absolute dark fab left bottom color="blue ligthen-4">
-                    <v-icon alt="Get Directions">map</v-icon>
-                  </v-btn>
                 </v-card-text>
 
               </v-card>
@@ -129,7 +126,7 @@ export default {
   },
   computed: {
     featuredLat() {
-      return Number(this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[1]);
+      return Number(this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[1]);      
     },
     featuredLong() {
       return Number(this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[0]);
@@ -139,16 +136,8 @@ export default {
 
       let dirLong = this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[0];
 
-      return `https://www.google.com/maps/search/?api=1&query=${dirLat},${dirLong}`
+      return `https://www.google.com/maps/search/?api=1&query=${dirLat},${dirLong}`;
     }    
   },
 }
 </script>
-
-<style scoped>
-
-ul {
-  lists-style: none;
-}  
-</style>
-

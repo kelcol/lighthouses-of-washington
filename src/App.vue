@@ -39,7 +39,7 @@
 
     <v-toolbar color="blue lighten-2" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Lighthouse Crawler</v-toolbar-title>
+      <v-toolbar-title class="header">Lighthouse Crawler</v-toolbar-title>
     </v-toolbar>
    
    <v-content> 
@@ -68,7 +68,12 @@
 
 <style>
   #app {
-   background-color: #e6f8d793;
+   background-color: #e6f8d7de;
+}
+.header {
+font-weight: 700;
+text-transform: uppercase;
+font-size: 2.25rem;
 }
 
 

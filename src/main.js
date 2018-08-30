@@ -6,13 +6,21 @@ import router from './router'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+import VueAnalytics from 'vue-analytics'
 
-// Helpers
-import colors from 'vuetify/es5/util/colors'
+Vue.use(VueAnalytics, {
+  id: 'UA-120008455-3',
+  autoTracking: {
+    exception: true
+  }, 
+router,
+debug: {
+  enabled: true
+}
+})
 
 Vue.use(Vuetify)
 
- 
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyDlt15aN8YL4N-9xAnFgoI1h2azKe-jFGE',
@@ -47,4 +55,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-

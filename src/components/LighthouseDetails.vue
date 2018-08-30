@@ -6,6 +6,9 @@
           <v-spacer></v-spacer>
           <v-list-tile-content>
               <ul>
+
+                <!--TODO: Add admirality number -->
+
                 <v-tooltip bottom>
                 <span slot="activator">
                 <li v-if="featured.ARLHS_Lighthouse_ID != null">

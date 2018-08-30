@@ -1,11 +1,14 @@
 <template>
   <div id="lhmap" v-if="lat,long">   
-      <gmap-map id="lhmap" v-bind:center="center" v-bind:zoom="10" map-type-id="terrain">
-        <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true"></gmap-marker>
+      <gmap-map id="lhmap" v-bind:center="center" v-bind:zoom="11" map-type-id="terrain">
+        <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" v-bind:draggable="true" 
+        :icon="{ url: require('../../src/assets/img/marker.png')}"
+        ></gmap-marker>
       </gmap-map>
       <div class="text-xs-center">                                
       </div>
-  
+  <p>{{ lat }}</p>
+  <p>{{ long }}</p>
     </div>
     
 </template>
@@ -46,11 +49,7 @@ export default {
       required: true,
       default: -122.681111
     }
-  }, methods: {
-    test: function() {
-      console.log(123)
-    }
-  }
+  }, 
 };
 </script>
 
