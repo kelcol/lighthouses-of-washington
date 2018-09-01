@@ -7,6 +7,9 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 import VueAnalytics from 'vue-analytics'
+import es6Promise from 'es6-promise'
+
+es6Promise.polyfill()
 
 Vue.use(VueAnalytics, {
   id: 'UA-120008455-3',
