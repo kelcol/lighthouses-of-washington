@@ -23,7 +23,7 @@
 ```
 #List of all the lighthouses in Washington State
 #defaultView:Table
-SELECT DISTINCT ?itemLabel ?image ?nighttime_view ?coordinate_location ?inception ?service_entry ?service_retirement ?height ?lighthouse_range ?focal_height ?manufacturer ?manufacturerLabel ?architect ?architectLabel ?native_label ?heritage_designation ?heritage_designationLabel ?NRHP_reference_number ?GeoNames_ID ?ARLHS_Lighthouse_ID ?USCG_Lighthouse_ID ?MarineTraffic_Lighthouse_ID ?GNIS_ID ?significant_event ?significant_eventLabel ?light_characteristic_of_lighthouse ?located_in_the_administrative_territorial_entity ?located_in_the_administrative_territorial_entityLabel ?Online_List_of_Lights_id ?located_in_protected_area ?located_in_protected_areaLabel WHERE {
+SELECT DISTINCT ?item ?itemLabel ?image ?nighttime_view ?coordinate_location ?inception ?service_entry ?service_retirement ?height ?lighthouse_range ?focal_height ?manufacturer ?manufacturerLabel ?architect ?architectLabel ?native_label ?heritage_designation ?heritage_designationLabel ?NRHP_reference_number ?GeoNames_ID ?ARLHS_Lighthouse_ID ?USCG_Lighthouse_ID ?MarineTraffic_Lighthouse_ID ?GNIS_ID ?significant_event ?significant_eventLabel ?light_characteristic_of_lighthouse ?located_in_the_administrative_territorial_entity ?located_in_the_administrative_territorial_entityLabel ?Online_List_of_Lights_id ?located_in_protected_area ?located_in_protected_areaLabel WHERE {
   ?item (wdt:P31/wdt:P279*) wd:Q39715.
   ?item wdt:P131 wd:Q1223.
   ?item wdt:P625 ?coord.
@@ -62,3 +62,5 @@ ORDER BY ?itemLabel
       this.long = Math.ceil(this.coords[1]);
       console.log(this.lat, this.long);
     }
+
+    Q47574

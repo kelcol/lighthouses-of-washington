@@ -12,7 +12,7 @@
               <li>
                 <strong>Temperature:</strong> {{ result.main.temp }}&#176;F</li>
               <li>
-                <strong>Humidity:</strong> {{ result.main.humidity }}</li>
+                <strong>Humidity:</strong> {{ result.main.humidity }}%</li>
               <li>
                 <strong>Wind Speed:</strong> {{ result.wind.speed}} mph</li>
             </ul>

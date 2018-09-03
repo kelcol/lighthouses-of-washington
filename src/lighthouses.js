@@ -1,13 +1,17 @@
 export default [{
+  "item": "http://www.wikidata.org/entity/Q2288135",
   "itemLabel": "Admiralty Head Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Admiralty%20head%20Lighthouse.jpg",
   "coordinate_location": "Point(-122.681111 48.160833)",
   "inception": "1903-01-01T00:00:00Z",
   "service_entry": "1903-01-01T00:00:00Z",
   "service_retirement": "1922-01-01T00:00:00Z",
+  "height": "30",
+  "focal_height": "40",
   "ARLHS_Lighthouse_ID": "USA002",
   "MarineTraffic_Lighthouse_ID": "1000020350"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2641400",
   "itemLabel": "Alki Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Alkilighthouse.jpg",
   "coordinate_location": "Point(-122.42055556 47.57638889)",
@@ -24,6 +28,7 @@ export default [{
   "light_characteristic_of_lighthouse": "Fl W 5s",
   "Online_List_of_Lights_id": "17865"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2641400",
   "itemLabel": "Alki Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Alkilighthouse.jpg",
   "coordinate_location": "Point(-122.42055556 47.57638889)",
@@ -40,6 +45,7 @@ export default [{
   "light_characteristic_of_lighthouse": "Iso W 6s",
   "Online_List_of_Lights_id": "17865"
 }, {
+  "item": "http://www.wikidata.org/entity/Q432291",
   "itemLabel": "Browns Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Browns%20Point%20Lighthouse.jpg",
   "coordinate_location": "Point(-122.44427778 47.30591667)",
@@ -55,8 +61,10 @@ export default [{
   "ARLHS_Lighthouse_ID": "USA089",
   "USCG_Lighthouse_ID": "6-17090",
   "MarineTraffic_Lighthouse_ID": "1000020357",
-  "light_characteristic_of_lighthouse": "FI W 5s"
+  "light_characteristic_of_lighthouse": "FI W 5s",
+  "Online_List_of_Lights_id": "17869"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2055218",
   "itemLabel": "Burrows Island Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Burrows%20Island%20Light.jpg",
   "coordinate_location": "Point(-122.713547 48.477908)",
@@ -70,8 +78,10 @@ export default [{
   "USCG_Lighthouse_ID": "6-19350",
   "MarineTraffic_Lighthouse_ID": "1000020348",
   "GNIS_ID": "1531339",
-  "light_characteristic_of_lighthouse": "Iso W 6s"
+  "light_characteristic_of_lighthouse": "Iso W 6s",
+  "Online_List_of_Lights_id": "17873"
 }, {
+  "item": "http://www.wikidata.org/entity/Q42792677",
   "itemLabel": "Bush Point Light",
   "coordinate_location": "Point(-122.5797 48.0274)",
   "inception": "1894-01-01T00:00:00Z",
@@ -84,6 +94,7 @@ export default [{
   "MarineTraffic_Lighthouse_ID": "1000020351",
   "light_characteristic_of_lighthouse": "FI W 2.5s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2187477",
   "itemLabel": "Cape Disappointment Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Cape%20Disappointment%20Lighthouse%20WA.jpg",
   "coordinate_location": "Point(-124.051667 46.275556)",
@@ -99,6 +110,7 @@ export default [{
   "significant_eventLabel": "automation",
   "light_characteristic_of_lighthouse": "Alt WR 30s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q1963379",
   "itemLabel": "Cape Flattery Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/TatooshLighthouse.jpg",
   "coordinate_location": "Point(-124.7366 48.3917)",
@@ -113,6 +125,7 @@ export default [{
   "GNIS_ID": "1531328",
   "light_characteristic_of_lighthouse": "FI(2) W 20S"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2291667",
   "itemLabel": "Cattle Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Cattle%20Point%20Light.jpg",
   "coordinate_location": "Point(-122.9633 48.4506)",
@@ -127,9 +140,11 @@ export default [{
   "MarineTraffic_Lighthouse_ID": "1000020347",
   "GNIS_ID": "1514918",
   "light_characteristic_of_lighthouse": "FI W 4s",
+  "Online_List_of_Lights_id": "17880",
   "located_in_protected_area": "http://www.wikidata.org/entity/Q8774216",
   "located_in_protected_areaLabel": "San Juan Islands National Monument"
 }, {
+  "item": "http://www.wikidata.org/entity/Q43213811",
   "itemLabel": "Clover Island Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Clover%20Island%20Lighthouse.jpg",
   "coordinate_location": "Point(-119.111111111 46.216944444)",
@@ -140,6 +155,7 @@ export default [{
   "MarineTraffic_Lighthouse_ID": "1000020373",
   "light_characteristic_of_lighthouse": "FI W 4s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q5265398",
   "itemLabel": "Destruction Island Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Destruction%20Island%20Lighthouse.jpg",
   "coordinate_location": "Point(-124.4868 47.6752)",
@@ -158,6 +174,7 @@ export default [{
   "located_in_protected_area": "http://www.wikidata.org/entity/Q15270586",
   "located_in_protected_areaLabel": "Quillayute Needles National Wildlife Refuge"
 }, {
+  "item": "http://www.wikidata.org/entity/Q5288124",
   "itemLabel": "Dofflemyer Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Dofflemyer%20Point%20Lighthouse.jpg",
   "coordinate_location": "Point(-122.907 47.1404)",
@@ -173,8 +190,10 @@ export default [{
   "USCG_Lighthouse_ID": "6-17400",
   "MarineTraffic_Lighthouse_ID": "1000020359",
   "GNIS_ID": "1514904",
-  "light_characteristic_of_lighthouse": "FI W 6s"
+  "light_characteristic_of_lighthouse": "FI W 6s",
+  "Online_List_of_Lights_id": "17871"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2680199",
   "itemLabel": "Ediz Hook Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Ediz%20Hook%20Tower%20and%20Dwelling%20%22B%22%2C%20July%201944%2C%20ca.%201943%20-%20ca.%201953%20-%20NARA%20-%20298194.jpg",
   "coordinate_location": "Point(-123.427 48.1127)",
@@ -184,6 +203,7 @@ export default [{
   "ARLHS_Lighthouse_ID": "USA266",
   "GNIS_ID": "1530586"
 }, {
+  "item": "http://www.wikidata.org/entity/Q5598355",
   "itemLabel": "Grays Harbor Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/GraysHarborWestportLightNpsPhoto2000.jpg",
   "coordinate_location": "Point(-124.117 46.8884)",
@@ -200,6 +220,7 @@ export default [{
   "GNIS_ID": "2610228",
   "light_characteristic_of_lighthouse": "Alt WR 30s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q6549119",
   "itemLabel": "Lime Kiln Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Lime%20Kiln%20Lighthouse%202.jpg",
   "coordinate_location": "Point(-123.152 48.5158)",
@@ -217,6 +238,7 @@ export default [{
   "GNIS_ID": "1506156",
   "light_characteristic_of_lighthouse": "FI W 10s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q6773039",
   "itemLabel": "Marrowstone Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Marrowstone%20pt%20lt.JPG",
   "coordinate_location": "Point(-122.6879 48.1018)",
@@ -229,8 +251,10 @@ export default [{
   "USCG_Lighthouse_ID": "6-16500",
   "MarineTraffic_Lighthouse_ID": "1000020362",
   "GNIS_ID": "1513018",
-  "light_characteristic_of_lighthouse": "F Occ W 6s"
+  "light_characteristic_of_lighthouse": "F Occ W 6s",
+  "Online_List_of_Lights_id": "17852"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2680081",
   "itemLabel": "Mukilteo Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Mukilteo%20Lighthouse%2001.jpg",
   "nighttime_view": "http://commons.wikimedia.org/wiki/Special:FilePath/Mukilteo%20Light%20Station%20And%20Ferry%20%28side%20view%29.jpg",
@@ -247,8 +271,10 @@ export default [{
   "USCG_Lighthouse_ID": "6-16460",
   "MarineTraffic_Lighthouse_ID": "1000020352",
   "GNIS_ID": "1531329",
-  "light_characteristic_of_lighthouse": "FI W 5s"
+  "light_characteristic_of_lighthouse": "FI W 5s",
+  "Online_List_of_Lights_id": "17872"
 }, {
+  "item": "http://www.wikidata.org/entity/Q7007034",
   "itemLabel": "New Dungeness Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/New%20Dungeness%20Light%20after%201927%2C%20Sequim%20%28Clallan%20County%2C%20Washington%29.jpg",
   "coordinate_location": "Point(-123.104722 48.182222)",
@@ -266,8 +292,10 @@ export default [{
   "USCG_Lighthouse_ID": "6-16335",
   "MarineTraffic_Lighthouse_ID": "1000020364",
   "GNIS_ID": "1534227",
-  "light_characteristic_of_lighthouse": "FI W 5s"
+  "light_characteristic_of_lighthouse": "FI W 5s",
+  "Online_List_of_Lights_id": "17846"
 }, {
+  "item": "http://www.wikidata.org/entity/Q7055575",
   "itemLabel": "North Head Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/North%20Head%20Light%2C%20bench%2C%202011.JPG",
   "coordinate_location": "Point(-124.078056 46.298889)",
@@ -281,12 +309,13 @@ export default [{
   "GNIS_ID": "1523890",
   "light_characteristic_of_lighthouse": "FI(2) W 30s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q7145196",
   "itemLabel": "Patos Island Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Patos%20island%20light.JPG",
   "coordinate_location": "Point(-122.9715 48.789)",
   "service_entry": "1908-01-01T00:00:00Z",
   "height": "8",
-  "lighthouse_range": ["6","9"],
+  "lighthouse_range": "6",
   "focal_height": "12",
   "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
   "heritage_designationLabel": "place listed on the National Register of Historic Places",
@@ -295,8 +324,28 @@ export default [{
   "USCG_Lighthouse_ID": "6-19825",
   "MarineTraffic_Lighthouse_ID": "1000020344",
   "GNIS_ID": "1533195",
-  "light_characteristic_of_lighthouse": "FI(1+2) WR 15s"
+  "light_characteristic_of_lighthouse": "FI(1+2) WR 15s",
+  "Online_List_of_Lights_id": "17884"
 }, {
+  "item": "http://www.wikidata.org/entity/Q7145196",
+  "itemLabel": "Patos Island Light",
+  "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Patos%20island%20light.JPG",
+  "coordinate_location": "Point(-122.9715 48.789)",
+  "service_entry": "1908-01-01T00:00:00Z",
+  "height": "8",
+  "lighthouse_range": "9",
+  "focal_height": "12",
+  "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
+  "heritage_designationLabel": "place listed on the National Register of Historic Places",
+  "NRHP_reference_number": "77001355",
+  "ARLHS_Lighthouse_ID": "USA584",
+  "USCG_Lighthouse_ID": "6-19825",
+  "MarineTraffic_Lighthouse_ID": "1000020344",
+  "GNIS_ID": "1533195",
+  "light_characteristic_of_lighthouse": "FI(1+2) WR 15s",
+  "Online_List_of_Lights_id": "17884"
+}, {
+  "item": "http://www.wikidata.org/entity/Q7208098",
   "itemLabel": "Point No Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Point%20no%20Point%20Light%20WA.jpg",
   "coordinate_location": "Point(-122.5267 47.9123)",
@@ -312,8 +361,10 @@ export default [{
   "ARLHS_Lighthouse_ID": "USA631",
   "USCG_Lighthouse_ID": "6-16550",
   "GNIS_ID": "1510000",
-  "light_characteristic_of_lighthouse": "FI(3) W 10s"
+  "light_characteristic_of_lighthouse": "FI(3) W 10s",
+  "Online_List_of_Lights_id": "17857"
 }, {
+  "item": "http://www.wikidata.org/entity/Q7208156",
   "itemLabel": "Point Robinson Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Point%20Robinson%2001-smaller.jpg",
   "coordinate_location": "Point(-122.3746 47.3881)",
@@ -331,13 +382,14 @@ export default [{
   "GNIS_ID": "1848455",
   "light_characteristic_of_lighthouse": "FI(2) W 12s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2671728",
   "itemLabel": "Point Wilson Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Pt%20Townsend%2C%20WA%20lighthouse%2001.jpg",
   "coordinate_location": "Point(-122.753889 48.144167)",
   "inception": "1879-01-01T00:00:00Z",
   "service_entry": "1914-01-01T00:00:00Z",
   "height": "14",
-  "lighthouse_range": ["15","16"],
+  "lighthouse_range": "15",
   "focal_height": "15",
   "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
   "heritage_designationLabel": "place listed on the National Register of Historic Places",
@@ -346,14 +398,37 @@ export default [{
   "ARLHS_Lighthouse_ID": "USA641",
   "USCG_Lighthouse_ID": "6-16475",
   "GNIS_ID": "1531715",
-  "light_characteristic_of_lighthouse": "F Occ WR 5s"
+  "light_characteristic_of_lighthouse": "F Occ WR 5s",
+  "Online_List_of_Lights_id": "17848"
 }, {
+  "item": "http://www.wikidata.org/entity/Q2671728",
+  "itemLabel": "Point Wilson Light",
+  "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Pt%20Townsend%2C%20WA%20lighthouse%2001.jpg",
+  "coordinate_location": "Point(-122.753889 48.144167)",
+  "inception": "1879-01-01T00:00:00Z",
+  "service_entry": "1914-01-01T00:00:00Z",
+  "height": "14",
+  "lighthouse_range": "16",
+  "focal_height": "15",
+  "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
+  "heritage_designationLabel": "place listed on the National Register of Historic Places",
+  "NRHP_reference_number": "71000870",
+  "GeoNames_ID": "6297584",
+  "ARLHS_Lighthouse_ID": "USA641",
+  "USCG_Lighthouse_ID": "6-16475",
+  "GNIS_ID": "1531715",
+  "light_characteristic_of_lighthouse": "F Occ WR 5s",
+  "Online_List_of_Lights_id": "17848"
+}, {
+  "item": "http://www.wikidata.org/entity/Q7449346",
   "itemLabel": "Semiahmoo Harbor Light",
   "coordinate_location": "Point(-122.78406 48.99219)",
   "inception": "1905-01-01T00:00:00Z",
   "service_entry": "1905-01-01T00:00:00Z",
-  "service_retirement": "1944-01-01T00:00:00Z"
+  "service_retirement": "1944-01-01T00:00:00Z",
+  "Online_List_of_Lights_id": "42200"
 }, {
+  "item": "http://www.wikidata.org/entity/Q32857564",
   "itemLabel": "Skunk Bay Lighthouse",
   "coordinate_location": "Point(-122.569722222 47.919166666)",
   "inception": "1965-01-01T00:00:00Z",
@@ -362,8 +437,10 @@ export default [{
   "ARLHS_Lighthouse_ID": "USA0965",
   "USCG_Lighthouse_ID": "6-16545",
   "MarineTraffic_Lighthouse_ID": "1000020361",
-  "light_characteristic_of_lighthouse": "F fixe rouge"
+  "light_characteristic_of_lighthouse": "F fixe rouge",
+  "Online_List_of_Lights_id": "17855"
 }, {
+  "item": "http://www.wikidata.org/entity/Q16900268",
   "itemLabel": "Slip Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Slip%20Point%20Tower%2C%20July%201944%20-%20NARA%20-%20298208.tif",
   "coordinate_location": "Point(-124.251 48.2645)",
@@ -375,13 +452,33 @@ export default [{
   "GNIS_ID": "1530587",
   "light_characteristic_of_lighthouse": "1916: W Flevery 4 s; <br>lightbuoy: G Flevery 4s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q7545191",
+  "itemLabel": "Smith Island Light",
+  "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Smith%20island%20light.JPG",
+  "coordinate_location": "Point(-122.84388889 48.31944444)",
+  "inception": "1858-01-01T00:00:00Z",
+  "service_entry": "1957-01-01T00:00:00Z",
+  "service_retirement": "1957-01-01T00:00:00Z",
+  "height": "15",
+  "focal_height": "30",
+  "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
+  "heritage_designationLabel": "place listed on the National Register of Historic Places",
+  "NRHP_reference_number": "78002746",
+  "GeoNames_ID": "5810888",
+  "ARLHS_Lighthouse_ID": "USA763",
+  "USCG_Lighthouse_ID": "6-16375",
+  "MarineTraffic_Lighthouse_ID": "1000020349",
+  "GNIS_ID": "1514906",
+  "light_characteristic_of_lighthouse": "FI W 10s"
+}, {
+  "item": "http://www.wikidata.org/entity/Q7986262",
   "itemLabel": "West Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Fort%20Lawton%20West%20Point%20Lighthouse%2003.jpg",
   "coordinate_location": "Point(-122.435667 47.661972)",
   "inception": "1881-01-01T00:00:00Z",
   "service_entry": "1881-01-01T00:00:00Z",
   "height": "7",
-  "lighthouse_range": ["13","16"],
+  "lighthouse_range": "13",
   "focal_height": "8",
   "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
   "heritage_designationLabel": "place listed on the National Register of Historic Places",
@@ -389,8 +486,28 @@ export default [{
   "ARLHS_Lighthouse_ID": "USA878",
   "USCG_Lighthouse_ID": "6-16800",
   "GNIS_ID": "1509423",
-  "light_characteristic_of_lighthouse": "Alt WR 10s"
+  "light_characteristic_of_lighthouse": "Alt WR 10s",
+  "Online_List_of_Lights_id": "17858"
 }, {
+  "item": "http://www.wikidata.org/entity/Q7986262",
+  "itemLabel": "West Point Light",
+  "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Fort%20Lawton%20West%20Point%20Lighthouse%2003.jpg",
+  "coordinate_location": "Point(-122.435667 47.661972)",
+  "inception": "1881-01-01T00:00:00Z",
+  "service_entry": "1881-01-01T00:00:00Z",
+  "height": "7",
+  "lighthouse_range": "16",
+  "focal_height": "8",
+  "heritage_designation": "http://www.wikidata.org/entity/Q19558910",
+  "heritage_designationLabel": "place listed on the National Register of Historic Places",
+  "NRHP_reference_number": "77001336",
+  "ARLHS_Lighthouse_ID": "USA878",
+  "USCG_Lighthouse_ID": "6-16800",
+  "GNIS_ID": "1509423",
+  "light_characteristic_of_lighthouse": "Alt WR 10s",
+  "Online_List_of_Lights_id": "17858"
+}, {
+  "item": "http://www.wikidata.org/entity/Q8003343",
   "itemLabel": "Willapa Bay Light",
   "coordinate_location": "Point(-124.08 46.71)",
   "service_entry": "1858-01-01T00:00:00Z",
