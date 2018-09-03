@@ -471,6 +471,22 @@ export default [{
   "GNIS_ID": "1514906",
   "light_characteristic_of_lighthouse": "FI W 10s"
 }, {
+  "item": "http://www.wikidata.org/entity/Q7855716",
+  "itemLabel": "Turn Point Light",
+  "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Turn%20Point%20Lighthouse%20%2816470653998%29.jpg",
+  "coordinate_location": "Point(-123.237 48.6892)",
+  "inception": "1893-01-01T00:00:00Z",
+  "service_entry": "1936-01-01T00:00:00Z",
+  "lighthouse_range": "8",
+  "focal_height": "13",
+  "ARLHS_Lighthouse_ID": "USA858",
+  "USCG_Lighthouse_ID": "6-19790",
+  "MarineTraffic_Lighthouse_ID": "1000020345",
+  "GNIS_ID": "1514899",
+  "light_characteristic_of_lighthouse": "Fl W 2.5s",
+  "located_in_protected_area": "http://www.wikidata.org/entity/Q8774216",
+  "located_in_protected_areaLabel": "San Juan Islands National Monument"
+}, {
   "item": "http://www.wikidata.org/entity/Q7986262",
   "itemLabel": "West Point Light",
   "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Fort%20Lawton%20West%20Point%20Lighthouse%2003.jpg",
