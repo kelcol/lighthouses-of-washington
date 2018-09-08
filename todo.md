@@ -53,6 +53,32 @@ SELECT DISTINCT ?item ?itemLabel ?image ?nighttime_view ?coordinate_location ?in
 ORDER BY ?itemLabel
 ```
 
+### Standardize and return unit of measurement for height
+```
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+
+SELECT DISTINCT ?lighthouse ?lighthouseLabel ?natureLabel ?height_psv ?unit_psvLabel ?height_psn ?unit_psnLabel WHERE {
+  ?lighthouse (wdt:P31/wdt:P279*) wd:Q39715.
+  OPTIONAL {
+    ?lighthouse (p:P2048/psv:P2048) ?heightnode_psv.
+    ?heightnode_psv wikibase:quantityAmount ?height_psv.
+    ?heightnode_psv wikibase:quantityUnit ?unit_psv.
+  }
+  OPTIONAL {
+    ?lighthouse (p:P2048/psn:P2048) ?heightnode_psn.
+    ?heightnode_psn wikibase:quantityAmount ?height_psn.
+    ?heightnode_psn wikibase:quantityUnit ?unit_psn.
+  }
+  OPTIONAL { ?lighthouse wdt:P31 ?nature. }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  FILTER(BOUND(?height_psn))
+  ?lighthouse wdt:P131 wd:Q1223.
+}
+ORDER BY DESC(?lighthouseLabel)
+```
+
+
 # Scratchpad
 
     getCoords: function(lighthouse) {
