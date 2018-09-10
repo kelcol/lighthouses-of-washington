@@ -30,7 +30,7 @@ export default {
   name: 'LighthouseWeather',
   data(){
     return {
-      result: '',   
+      result: '',
     }
   },
 props: {
@@ -41,14 +41,14 @@ props: {
   },
   computed: {
     lat () {
-      return this.featured.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[1].replace(/\..*/, "");
+      return this.featured.lat.replace(/\..*/, "");
       },
     long () {
-      return this.featured.coordinate_location.replace(/[A-Z][a-z]*/,"").replace(/\(|\)/g, "").split(' ')[0].replace(/\..*/, "");
+      return this.featured.lon.replace(/\..*/, "");
       },
     icon () {
       return `http://openweathermap.org/img/w/${result.weather[0].icon}.png`;
-    }     
+    }
 },
 methods: {
     getWeather: function () {

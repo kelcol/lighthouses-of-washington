@@ -26,55 +26,56 @@
 PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
 PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
 
-SELECT DISTINCT ?lighthouse ?lighthouseLabel
+SELECT DISTINCT ?item ?itemLabel
 
-                ?height_psv ?heightunit_psvLabel ?height_psn ?heightunit_psnLabel
+                ?height_psn ?heightUnit_psnLabel
 
-                ?fheight_psv ?fheightunit_psvLabel ?fheight_psn ?fheightunit_psnLabel
-                ?range_psv ?rangeunit_psvLabel
+                ?heightFocal_psn ?heightFocalUnit_psnLabel
 
-                ?lon ?lat
+                ?range_psv ?rangeUnit_psvLabel
+
+                ?lat ?lon
 
                 ?image ?nighttime_view ?inception ?service_entry ?service_retirement ?native_label ?heritage_designation ?heritage_designationLabel ?NRHP_reference_number ?GeoNames_ID ?ARLHS_Lighthouse_ID ?USCG_Lighthouse_ID ?MarineTraffic_Lighthouse_ID ?GNIS_ID ?significant_event ?significant_eventLabel ?light_characteristic_of_lighthouse ?located_in_the_administrative_territorial_entity ?located_in_the_administrative_territorial_entityLabel ?Online_List_of_Lights_id ?located_in_protected_area ?located_in_protected_areaLabel
 
 WHERE {
-  ?lighthouse (wdt:P31/wdt:P279*) wd:Q39715.
-  ?lighthouse wdt:P131 wd:Q1223.
+  ?item (wdt:P31/wdt:P279*) wd:Q39715.
+  ?item wdt:P131 wd:Q1223.
 
  # height
   OPTIONAL {
-    ?lighthouse (p:P2048/psv:P2048) ?heightnode_psv.
+    ?item (p:P2048/psv:P2048) ?heightnode_psv.
     ?heightnode_psv wikibase:quantityAmount ?height_psv.
-    ?heightnode_psv wikibase:quantityUnit ?heightunit_psv.
+    ?heightnode_psv wikibase:quantityUnit ?heightUnit_psv.
   }
   OPTIONAL {
-    ?lighthouse (p:P2048/psn:P2048) ?heightnode_psn.
+    ?item (p:P2048/psn:P2048) ?heightnode_psn.
     ?heightnode_psn wikibase:quantityAmount ?height_psn.
-    ?heightnode_psn wikibase:quantityUnit ?heightunit_psn.
+    ?heightnode_psn wikibase:quantityUnit ?heightUnit_psn.
   }
 
   # focal height
   OPTIONAL {
-    ?lighthouse (p:P2923/psv:P2923) ?fheightnode_psv.
-    ?fheightnode_psv wikibase:quantityAmount ?fheight_psv.
-    ?fheightnode_psv wikibase:quantityUnit ?fheightunit_psv.
+    ?item (p:P2923/psv:P2923) ?heightFocalnode_psv.
+    ?heightFocalnode_psv wikibase:quantityAmount ?heightFocal_psv.
+    ?heightFocalnode_psv wikibase:quantityUnit ?heightFocalUnit_psv.
   }
   # focal height - normalized
   OPTIONAL {
-    ?lighthouse (p:P2923/psn:P2923) ?fheightnode_psn.
-    ?fheightnode_psn wikibase:quantityAmount ?fheight_psn.
-    ?fheightnode_psn wikibase:quantityUnit ?fheightunit_psn.
+    ?item (p:P2923/psn:P2923) ?heightFocalnode_psn.
+    ?heightFocalnode_psn wikibase:quantityAmount ?heightFocal_psn.
+    ?heightFocalnode_psn wikibase:quantityUnit ?heightFocalUnit_psn.
   }
 
   # range - only non-normalized
   OPTIONAL {
-    ?lighthouse (p:P2929/psv:P2929) ?rangenode_psv.
+    ?item (p:P2929/psv:P2929) ?rangenode_psv.
     ?rangenode_psv wikibase:quantityAmount ?range_psv.
-    ?rangenode_psv wikibase:quantityUnit ?rangeunit_psv.
+    ?rangenode_psv wikibase:quantityUnit ?rangeUnit_psv.
   }
 
   OPTIONAL {
-      ?lighthouse p:P625 ?coordinate.
+      ?item p:P625 ?coordinate.
       ?item p:P625 ?coordinate.
       ?coordinate ps:P625 ?coord.
       ?coordinate psv:P625 ?coordinate_node.
@@ -82,32 +83,26 @@ WHERE {
       ?coordinate_node wikibase:geoLatitude ?lat.
       }
 
+  OPTIONAL { ?item wdt:P18 ?image. }
+  OPTIONAL { ?item wdt:P3451 ?nighttime_view. }
+  OPTIONAL { ?item wdt:P571 ?inception. }
+  OPTIONAL { ?item wdt:P729 ?service_entry. }
+  OPTIONAL { ?item wdt:P730 ?service_retirement. }
+  OPTIONAL { ?item wdt:P649 ?NRHP_reference_number. }
+  OPTIONAL { ?item wdt:P1566 ?GeoNames_ID. }
+  OPTIONAL { ?item wdt:P2980 ?ARLHS_Lighthouse_ID. }
+  OPTIONAL { ?item wdt:P3723 ?USCG_Lighthouse_ID. }
+  OPTIONAL { ?item wdt:P590 ?GNIS_ID. }
+  OPTIONAL { ?item wdt:P793 ?significant_event. }
+  OPTIONAL { ?item wdt:P1030 ?light_characteristic_of_lighthouse. }
+  OPTIONAL { ?item wdt:P3601 ?MarineTraffic_Lighthouse_ID. }
+  OPTIONAL { ?item wdt:P1435 ?heritage_designation. }
+  OPTIONAL { ?item wdt:P3223 ?Online_List_of_Lights_id. }
+  OPTIONAL { ?item wdt:P3018 ?located_in_protected_area. }
 
-  OPTIONAL { ?lighthouse wdt:P18 ?image. }
-  OPTIONAL { ?lighthouse wdt:P3451 ?nighttime_view. }
-
-  OPTIONAL { ?lighthouse wdt:P571 ?inception. }
-  OPTIONAL { ?lighthouse wdt:P729 ?service_entry. }
-  OPTIONAL { ?lighthouse wdt:P730 ?service_retirement. }
-  OPTIONAL { ?lighthouse wdt:P649 ?NRHP_reference_number. }
-  OPTIONAL { ?lighthouse wdt:P1566 ?GeoNames_ID. }
-  OPTIONAL { ?lighthouse wdt:P2980 ?ARLHS_Lighthouse_ID. }
-  OPTIONAL { ?lighthouse wdt:P3723 ?USCG_Lighthouse_ID. }
-  OPTIONAL { ?lighthouse wdt:P590 ?GNIS_ID. }
-  OPTIONAL { ?lighthouse wdt:P793 ?significant_event. }
-  OPTIONAL { ?lighthouse wdt:P1030 ?light_characteristic_of_lighthouse. }
-  OPTIONAL { ?lighthouse wdt:P2929 ?lighthouse_range. }
-  OPTIONAL { ?lighthouse wdt:P3601 ?MarineTraffic_Lighthouse_ID. }
-  OPTIONAL { ?lighthouse wdt:P1435 ?heritage_designation. }
-  OPTIONAL { ?lighthouse wdt:P3223 ?Online_List_of_Lights_id. }
-  OPTIONAL { ?lighthouse wdt:P3018 ?located_in_protected_area. }
-
-SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en".
-                        ?lighthouse rdfs:label ?LighthouseID.
-                        ?lighthouseLabel rdfs:label ?Name.
-                        ?height_psn rdfs:label ?Height }
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en".}
 }
-ORDER BY ?lighthouseLabel
+ORDER BY ?itemLabel
 ```
 
 
@@ -120,5 +115,3 @@ ORDER BY ?lighthouseLabel
       this.long = Math.ceil(this.coords[1]);
       console.log(this.lat, this.long);
     }
-
-    Q47574

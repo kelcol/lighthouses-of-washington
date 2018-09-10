@@ -29,7 +29,6 @@
 
                 <v-card-media position="relative" height="400px">
                   <lighthouse-map :lat="featuredLat" :long="featuredLong"></lighthouse-map>
-                  <img  v-if="featuredLighthouse.image !=null" :src="featuredLighthouse.image"/>
                 </v-card-media>
                 <v-btn absolute dark fab left bottom color="blue ligthen-4" target="_blank" alt="Get directions, links to external site" v-bind:href="getDirectionsURL">
                     <v-icon alt="Get Directions">map</v-icon>
@@ -42,30 +41,7 @@
                 </v-card-title>
 
                 <v-card-text>
-                  <!-- <a target="_blank" :href="getDirectionsURL">Get Directions</a> -->
-                  <p>
-                    <!-- same inception and no given service entry date-->
-                    <span v-if="featuredLighthouse.inception != null && featuredLighthouse.service_entry == null">{{
-                      featuredLighthouse.itemLabel }} was built in {{ featuredLighthouse.inception.substring(0, 4) }}.</span>
-
-                    <!-- same inception and service entry date-->
-                    <span v-if="featuredLighthouse.inception != null && featuredLighthouse.service_entry != null && featuredLighthouse.service_entry == featuredLighthouse.inception">{{
-                      featuredLighthouse.itemLabel }} was constructed and first lit in {{
-                      featuredLighthouse.inception.substring(0, 4) }}.</span>
-
-                    <!-- same inception and different service entry date-->
-                    <span v-if="featuredLighthouse.inception != null && featuredLighthouse.service_entry != null && featuredLighthouse.service_entry != featuredLighthouse.inception">{{
-                      featuredLighthouse.itemLabel }} was constructed in {{ featuredLighthouse.inception.substring(0,
-                      4) }} and first lit in {{ featuredLighthouse.service_entry.substring(0, 4) }}.</span>
-
-                    <!-- physical and other characteristics -->
-
-                    <!--Known height-->
-                    <span v-if="featuredLighthouse.height != null">It has a height of {{ featuredLighthouse.height }} meters above sea level,</span>
-
-                    <!--Unnown height-->
-                    <span v-if="featuredLighthouse.height == null && featuredLighthouse.focal_height|featuredLighthouse.height|featuredLighthouse.lighthouse_range|featuredLighthouse.light_characteristic_of_lighthouse != null">It has </span><span v-if="featuredLighthouse.focal_height != null"> a focal height of {{ featuredLighthouse.focal_height }} meters, </span><span v-if="featuredLighthouse.light_characteristic_of_lighthouse != null"><span v-if="featuredLighthouse.lighthouse_range != null"> a range of {{featuredLighthouse.lighthouse_range }} nautical miles, </span>and a light characteristic of {{ featuredLighthouse.light_characteristic_of_lighthouse }}.  </span><span v-if="featuredLighthouse.service_retirement != null"> This lighthouse was retired in {{ featuredLighthouse.service_retirement.substring(0, 4) }}. </span><span v-if="featuredLighthouse.NRHP_reference_number != null">{{ featuredLighthouse.itemLabel }} is listed on the National Register of Historic Places.</span>
-                  </p>
+                  <lighthouse-description :featured="featuredLighthouse" :key="featuredLighthouse.itemLabel"></lighthouse-description>
 
                   <v-container>
                     <v-layout row wrap>
@@ -75,7 +51,7 @@
                             <div slot="header" color="pink">Current Weather</div>
                             <v-card color="blue-grey lighten-5">
                               <v-card-text>
-                                <lighthouse-weather :featured="featuredLighthouse" v-bind:key="featuredLighthouse.coordinate_location"></lighthouse-weather>
+                                <lighthouse-weather :featured="featuredLighthouse" v-bind:key="featuredLighthouse.lat"></lighthouse-weather>
                               </v-card-text>
                             </v-card>
                           </v-expansion-panel-content>
@@ -88,14 +64,16 @@
                             <div slot="header">Lighthouse Identifiers</div>
                             <v-card color="blue-grey lighten-5">
                               <v-card-text>
-                                <lighthouse-details :featured="featuredLighthouse" v-bind:key="featuredLighthouse.itemLabel"></lighthouse-details>
+                                <lighthouse-identifiers :featured="featuredLighthouse" v-bind:key="featuredLighthouse.itemLabel"></lighthouse-identifiers>
                               </v-card-text>
                             </v-card>
                           </v-expansion-panel-content>
                         </v-expansion-panel>
                       </v-flex>
                     </v-layout>
+
                   </v-container>
+
                 </v-card-text>
 
               </v-card>
@@ -104,11 +82,6 @@
 
           </v-layout>
 
-
-
-
-
-
       </v-container>
     </v-container>
   </v-content>
@@ -116,9 +89,10 @@
 
 <script>
 import lighthouses from "../lighthouses.js";
-import LighthouseDetails from "@/components/LighthouseDetails";
+import LighthouseIdentifiers from "@/components/LighthouseIdentifiers";
 import LighthouseMap from "@/components/LighthouseMap";
 import LighthouseWeather from "@/components/LighthouseWeather";
+import LighthouseDescription from "@/components/LighthouseDescription";
 
 export default {
   name: "featuredLighthouse",
@@ -129,24 +103,30 @@ export default {
     }
   },
   components: {
-    'lighthouse-details': LighthouseDetails,
+    'lighthouse-identifiers': LighthouseIdentifiers,
     'lighthouse-weather': LighthouseWeather,
     'lighthouse-map': LighthouseMap,
+    'lighthouse-description': LighthouseDescription
   },
   computed: {
     featuredLat() {
-      return Number(this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[1]);
+      return Number(this.featuredLighthouse.lat);
     },
     featuredLong() {
-      return Number(this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[0]);
+      return Number(this.featuredLighthouse.lon);
     },
     getDirectionsURL() {
-      let dirLat = this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[1];
-
-      let dirLong = this.featuredLighthouse.coordinate_location.replace(/[A-Z][a-z]*/, "").replace(/\(|\)/g, "").split(' ')[0];
-
+      let dirLat = this.featuredLighthouse.lat;
+      let dirLong = this.featuredLighthouse.lon;
       return `https://www.google.com/maps/search/?api=1&query=${dirLat},${dirLong}`;
     }
   },
 }
 </script>
+
+<style scoped>
+ img {
+   width: 90%
+ }
+</style>
+
